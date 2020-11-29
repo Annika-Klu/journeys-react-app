@@ -1,0 +1,36 @@
+/*NAVIGATION*/
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 5vh;
+    padding: 1em;
+    background-color: rgba(27, 134, 170, 0.6);
+  }
+  
+  .nav-left, .nav-right {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-left div, .nav-right div {
+    margin: 0em 0.4em;
+  }
+  
+  #logo {
+    font-family: flood-std, sans-serif;
+    font-size: 2.5em;
+  }
+  
+  #contact:visited {
+    color:rgba(255, 255, 255, 0.2)
+  }
+  
+  nav div button {
+    border-style: none;
+    padding: 0.5em;
+    width: 6em;
+    border-radius: 0.5em;
+    color: rgba(20, 112, 143, 0.6);
+    background-color: white;
+  }

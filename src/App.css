@@ -1,38 +1,35 @@
-.App {
-  text-align: center;
+body {
+  /* background-image: url('https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+  background-size: 100vmax;
+  background-repeat: no-repeat; */
+  background-color: rgba(27, 134, 170, 0.5);
+  box-sizing: border-box;
+  color: white; 
+  font-size: 0.8em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+a:hover, button:hover {
+  font-weight: bold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
+  color: rgba(27, 134, 170, 0.5);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* in case I wanna add an animation...
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
+  @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
+} */
