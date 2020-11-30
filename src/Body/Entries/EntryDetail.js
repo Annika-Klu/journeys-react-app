@@ -1,6 +1,10 @@
 import React from 'react';
+import { Link, useParams } from 'react-router-dom';
 
-function EntryDetail ({entries, detailPageIndex, setIndex}) {
+// detailPageIndex
+function EntryDetail ({entries, setIndex}) {
+
+    let { id } = useParams();
 
     const onClick = (event) => {
         event.preventDefault();
@@ -8,10 +12,10 @@ function EntryDetail ({entries, detailPageIndex, setIndex}) {
     }
 
     return (
-            <div className="entry-preview">
-                <h2 className="title">{entries[detailPageIndex].author}'s experience</h2>
+            <div className="entry-detail">
+                <h2 className="title">{entries[id].author}'s experience</h2>
                 <p>Lorem ipsum blablabla</p>
-                <button onClick={onClick}>View all entries</button>
+                <button onClick={onClick}><Link to={`/`} className='view-all-link'>View all entries</Link></button>
             </div>
         )
 }

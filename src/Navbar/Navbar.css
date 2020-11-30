@@ -24,16 +24,16 @@
     font-size: 2.5em;
     margin-left: 0.5em;
   }
+
+  #contact {
+    color: white;
+  }
   
   #contact:visited {
     color:rgba(255, 255, 255, 0.2)
   }
   
   nav div button {
-    border-style: none;
-    padding: 0.5em;
-    width: 6em;
-    border-radius: 0.5em;
     color: rgba(20, 112, 143, 0.6);
     background-color: white;
   }

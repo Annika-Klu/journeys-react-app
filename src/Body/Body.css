@@ -1,5 +1,7 @@
 /*ENTRIES*/
 
+/*all entries page*/
+
 .body-flex {
     display: flex;
   }
@@ -27,14 +29,14 @@
   
 /* Responsiveness - blog list entries */
 @media only screen and (max-width: 750px) {
-.entry-wrap {
-    grid-template-columns: auto;
-    width: 30%;
-}
-.entry-preview {
-    width: 65%;
-    margin: 8% 0 0 10%;
-}
+  .entry-wrap {
+      grid-template-columns: auto;
+      width: 30%;
+  }
+  .entry-preview {
+      width: 65%;
+      margin: 8% 0 0 10%;
+  }
 }
   
 .entry-img-wrap {
@@ -63,6 +65,24 @@
   
 .entry-preview p {
     line-height: 1em;
+}
+
+/*single entry page*/
+
+.view-all-link {
+  color: lightgrey;
+  padding: 1em;
+}
+
+.entry-detail {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.5em;
+  padding: 1em;
+  height: 80%;
+  width: 60%;
+  margin: 5% 0 0 10%;
+  color: rgba(27, 134, 170, 0.5);
 }
 
 /*MAP*/

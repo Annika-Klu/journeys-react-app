@@ -2,19 +2,26 @@ body {
   /* background-image: url('https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500');
   background-size: 100vmax;
   background-repeat: no-repeat; */
-  background-color: rgba(27, 134, 170, 0.5);
+  background-color: rgba(31, 152, 192, 0.5);
   box-sizing: border-box;
   color: white; 
   font-size: 0.8em;
 }
 
-a:hover, button:hover {
-  font-weight: bold;
-}
-
 a {
   text-decoration: none;
   color: rgba(27, 134, 170, 0.5);
+}
+
+button {
+  border-style: none;
+    padding: 0.5em;
+    width: 6em;
+    border-radius: 0.5em;
+}
+
+a:hover, button:hover {
+  font-weight: bold;
 }
 
 /* in case I wanna add an animation...

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link } from 'react-router-dom';
 
 function AllEntries ({entries, setIndex}) {
     console.log(entries);
@@ -16,11 +17,12 @@ function AllEntries ({entries, setIndex}) {
                     <img alt={entry.title} src={entry.locationImg} className="entry-img"/>
                 </div>
                 <h2 className="title">
-                    <a onClick={onClick(index)} href={`/post/${index+1}`} className="title-link">{entry.title}</a>
+                {/*removed from a: href={`/post/${index+1}`} */}
+                    <a onClick={onClick(index)} className="title-link"><Link to={`/post/${index+1}`}>{entry.title}</Link></a>
                 </h2>
-                <p>{entry.visitDate}
-                    <br />
-                    by {entry.author}
+                <p>
+                    {entry.visitDate} <br />
+                   by {entry.author}
                 </p>
                 <br />
             </div>
