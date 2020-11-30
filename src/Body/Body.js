@@ -17,7 +17,6 @@ function Body() {
         <div className="body-wrap">
           
           {/* ENTRIES SECTION */}
-          
             <Route 
             exact path='/' 
             render={() => (
@@ -39,7 +38,6 @@ function Body() {
             />
           
           {/* MAP SECTION */}
-          
           <Route 
             exact path={`/`}
             component={() => (
