@@ -9,17 +9,23 @@ function AllEntries ({entries}) {
         entries.map((entry, index) =>
             <div key={index} className="entry-preview box">
                 <div className="entry-img-wrap">
-                    <Link to={`/post/${index}`}>
+                    <Link to={`/post/${index+1}`}>
                         <img alt={entry.title} src={entry.locationImg} className="entry-img"/>
                     </Link>
                 </div>
-                <h2 className="title">
-                    <a className="title-link" href={`/post/${index}`}>{entry.title}</a>
-                </h2>
-                <p>
-                    {entry.visitDate} <br />
-                   by {entry.author}
-                </p>
+                <div className='entry-preview-header'>
+                    <h1 className="title">
+                        <a className="title-link" href={`/post/${index+1}`}>{entry.title}</a>
+                    </h1>
+                    <div>
+                        {entry.visitDate}
+                    </div>
+                </div>
+                {/* {entry.visitDate} <br /> */}
+                <div className='authorData'>
+                    <img src={entry.authorImg} className='authorImg'/>     {entry.author}
+                </div>
+                
                 <br />
             </div>
         )

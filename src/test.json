@@ -1,30 +1,42 @@
 [
     {
-        "title" : "Exploring Morocco",
+        "title" : "Exploring Moroccan Tea Rituals",
+        "location" : "Agadir",
+        "country" : "Morocco",
         "visitDate": "2020-11-09",
-        "author-img": "url",
-        "author" : "Amanda",
-        "locationImg": "https://images.pexels.com/photos/273935/pexels-photo-273935.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+        "locationImg": "https://images.pexels.com/photos/273935/pexels-photo-273935.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        "authorImg": "https://images.pexels.com/photos/4626674/pexels-photo-4626674.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        "author" : "Amanda Wellington",
+        "description" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     },
     {
         "title" : "Hawaiian Beach Vibes",
-        "visitDate": "2018-07-02",
-        "author-img": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-        "author" : "Arnie",
-        "locationImg": "https://images.pexels.com/photos/2521619/pexels-photo-2521619.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+        "location" : "Honokaa",
+        "country" : "Hawaii",
+        "visitDate": "2019-06-17",
+        "locationImg": "https://images.pexels.com/photos/2521619/pexels-photo-2521619.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "authorImg": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        "author" : "Arnie Chao",
+        "description" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     },
     {
-        "title" : "Moose Hunt in Canada",
+        "title" : "Moose Hunt in the Wild",
+        "location" : "Vancouver",
+        "country" : "Canada",
         "visitDate": "2018-07-02",
-        "author-img": "url",
-        "author" : "Sam",
-        "locationImg": "https://images.pexels.com/photos/76972/moose-moose-rack-male-bull-76972.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-    }, 
+        "locationImg": "https://images.pexels.com/photos/76972/moose-moose-rack-male-bull-76972.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+        "authorImg": "https://images.pexels.com/photos/3656518/pexels-photo-3656518.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        "author" : "Sam Rogers",
+        "description" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+    },
     {
         "title" : "Nightlife of Puerto Rico",
         "visitDate": "2014-03-24",
-        "author-img": "url",
-        "author" : "Robert",
-        "locationImg": "https://images.pexels.com/photos/4546984/pexels-photo-4546984.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+        "location" : "San Juan",
+        "country" : "Puerto Rico",
+        "locationImg": "https://images.pexels.com/photos/4546984/pexels-photo-4546984.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        "authorImg": "https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+        "author" : "Mia Kuznetsov",
+        "description" : "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
     }
   ]
