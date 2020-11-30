@@ -9,8 +9,6 @@ import entries from '../test.json'
 
 function Body() {
 
-  // const [showDetail, setDetailIndex] = useState(undefined);
-
   return (
     <>
       <Router>
@@ -22,9 +20,7 @@ function Body() {
             exact path='/' 
             render={() => (
                 <div className='all-entries-wrap'>
-                <AllEntries entries={entries} 
-                // setIndex={setDetailIndex} 
-                />
+                <AllEntries entries={entries}/>
                 </div>
               )}
             />
@@ -34,21 +30,13 @@ function Body() {
               render={() => (
                 <>
                   <div className='single-entry-wrap'>
-                    <EntryDetail entries={entries} 
-                    // detailPageIndex={showDetail} 
-                    // setIndex={setDetailIndex} 
-                    />
+                    <EntryDetail entries={entries}/>
                   </div>
                 </>
               )}
             />
-
-          {/* { showDetail === undefined ?  
-          <AllEntries entries={entries} setIndex={setDetailIndex} /> : 
-          <EntryDetail entries={entries} detailPageIndex={showDetail} setIndex={setDetailIndex}/> } */}
           
           {/* MAP SECTION */}
-
           
           <Route 
             exact path={`/`}
@@ -58,10 +46,6 @@ function Body() {
               </div>
             )}
           />
-
-            {/* below: previous content map component 
-            { showDetail === undefined ?
-            <h2 className="map-heading">Places you guys have been...</h2> : <div>test</div> } */}
                   
         {/*as it always confuses me, reminder: below is "body-wrap" div closing tag...*/}
         </div>

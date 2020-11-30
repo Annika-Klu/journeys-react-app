@@ -6,11 +6,6 @@ function EntryDetail ({entries}) {
 
     let { id } = useParams();
 
-    // const onClick = (event) => {
-    //     event.preventDefault();
-    //     setIndex(undefined);
-    // }
-
     return (
             <div className='entry-detail box'>
                 <img src={`${entries[id].locationImg}`} className="entry-img detail-img"/>
