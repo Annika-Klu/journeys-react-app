@@ -152,6 +152,7 @@
 
 #contact-header {
   font-size: 1.5em;
+  margin: 5% 0 2% 0;
 }
 
 .contact-page {
@@ -159,4 +160,10 @@
   width: 60%;
   margin: 5% 0 0 20%;
   height: 100vh;
+}
+
+#contact-details {
+  margin-left: -5%;
+  list-style-type: none;
+  list-style-position: inside;
 }

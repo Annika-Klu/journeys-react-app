@@ -7,6 +7,8 @@ import Contact from './Contact/Contact';
 
 import entries from '../test.json'
 
+//sorting function!
+
 function Body() {
 
   return (

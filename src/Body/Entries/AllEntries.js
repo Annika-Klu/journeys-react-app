@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function AllEntries ({entries}) {
     
@@ -23,7 +23,7 @@ function AllEntries ({entries}) {
                 </div>
                 {/* {entry.visitDate} <br /> */}
                 <div className='authorData'>
-                    <img src={entry.authorImg} className='authorImg'/>     {entry.author}
+                    <img src={entry.authorImg} alt={entry.author} className='authorImg'/>     {entry.author}
                 </div>
                 
                 <br />
