@@ -3,8 +3,10 @@
 .header-wrapper {
     display: flex;
     justify-content: space-between;
-    height: 5vh;
+    height: 6vh;
     padding: 1em;
+    /* background-image: url('https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+    background-size: 1000px; */
     background-color: rgba(27, 134, 170, 0.6);
   }
   
@@ -20,6 +22,7 @@
   #logo {
     font-family: flood-std, sans-serif;
     font-size: 2.5em;
+    margin-left: 0.5em;
   }
   
   #contact:visited {

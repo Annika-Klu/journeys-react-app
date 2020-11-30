@@ -16,7 +16,7 @@ function AllEntries ({entries, setIndex}) {
                     <img alt={entry.title} src={entry.locationImg} className="entry-img"/>
                 </div>
                 <h2 className="title">
-                    <a onClick={onClick(index)} href={index} className="title-link">{entry.title}</a>
+                    <a onClick={onClick(index)} href={`/post/${index+1}`} className="title-link">{entry.title}</a>
                 </h2>
                 <p>{entry.visitDate}
                     <br />

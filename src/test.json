@@ -7,7 +7,7 @@
         "locationImg": "https://images.pexels.com/photos/273935/pexels-photo-273935.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
     },
     {
-        "title" : "Sunbathing in Hawaii",
+        "title" : "Hawaiian Beach Vibes",
         "visitDate": "2018-07-02",
         "author-img": "url",
         "author" : "Arnie",
@@ -21,10 +21,10 @@
         "locationImg": "https://images.pexels.com/photos/76972/moose-moose-rack-male-bull-76972.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
     }, 
     {
-        "title" : "my trip to Hawaii",
-        "visitDate": "2018-07-02",
+        "title" : "Nightlife of Puerto Rico",
+        "visitDate": "2014-03-24",
         "author-img": "url",
-        "author" : "Arnie",
-        "locationImg": "url"
+        "author" : "Robert",
+        "locationImg": "https://images.pexels.com/photos/4546984/pexels-photo-4546984.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
     }
   ]

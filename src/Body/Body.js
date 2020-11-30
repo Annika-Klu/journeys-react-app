@@ -21,8 +21,7 @@ function Body() {
         <div className="map-wrap">
           {/* eventually replace below headers with map component */}
           { showDetail === undefined ?
-          <h2 className="map-heading">Places you guys have been...</h2> : 
-          <h2 className="map-heading">Where they've been:</h2>}
+          <h2 className="map-heading">Places you guys have been...</h2> : ""}
         </div>
     </div>
     </>
