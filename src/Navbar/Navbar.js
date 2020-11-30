@@ -7,7 +7,9 @@ function Navbar () {
             <div className="header-wrapper">
                 <nav className="nav-left">
                     <div> 
-                        <span id="logo">JOURNEYS. </span>
+                        <a href='/'>
+                            <span id="logo">JOURNEYS. </span>
+                        </a>
                         share your travel experiences
                     </div>
                 </nav>

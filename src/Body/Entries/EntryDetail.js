@@ -1,21 +1,24 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-// detailPageIndex
-function EntryDetail ({entries, setIndex}) {
+//removed from props bc of removing hook: detailPageIndex, setIndex
+function EntryDetail ({entries}) {
 
     let { id } = useParams();
 
-    const onClick = (event) => {
-        event.preventDefault();
-        setIndex(undefined);
-    }
+    // const onClick = (event) => {
+    //     event.preventDefault();
+    //     setIndex(undefined);
+    // }
 
     return (
-            <div className="entry-detail">
-                <h2 className="title">{entries[id].author}'s experience</h2>
-                <p>Lorem ipsum blablabla</p>
-                <button onClick={onClick}><Link to={`/`} className='view-all-link'>View all entries</Link></button>
+            <div className='entry-detail box'>
+                <img src={`${entries[id].locationImg}`} className="entry-img detail-img"/>
+                <h2 className='title detail-title'>{entries[id].author}'s experience</h2>
+                <p className='detail-text'>Lorem ipsum blablabla</p>
+                <button className='view-all-btn'>
+                    <Link to={`/`} className='view-all-link'>View all entries</Link>
+                </button>
             </div>
         )
 }
