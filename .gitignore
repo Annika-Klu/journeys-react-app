@@ -21,3 +21,6 @@
 npm-debug.log*
 
 *.code-workspace
+
+#optional eslint cache
+.eslintcache
