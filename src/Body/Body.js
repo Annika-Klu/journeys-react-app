@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AllEntries from './Entries/AllEntries';
+import GoogleMap from './Map/GoogleMap';
 import EntryDetail from './Entries/EntryDetail';
 import Contact from './Contact/Contact';
 
@@ -16,16 +17,22 @@ function Body() {
       <Router>
         <div className="body-wrap">
           
-          {/* ENTRIES SECTION */}
+          {/* ALL ENTRIES + MAP */}
             <Route 
             exact path='/' 
             render={() => (
+              <>
                 <div className='all-entries-wrap'>
-                <AllEntries entries={entries}/>
+                  <AllEntries entries={entries}/>
                 </div>
+                <div className='map-wrap'>
+                  <GoogleMap/>
+                </div>
+              </>
               )}
             />
-      
+
+            {/* ENTRY DETAIL PAGE */}
             <Route 
               exact path={`/post/:id`}
               render={() => (
@@ -36,16 +43,6 @@ function Body() {
                 </>
               )}
             />
-          
-          {/* MAP SECTION */}
-          <Route 
-            exact path={`/`}
-            component={() => (
-              <div className='map-wrap'>
-                <div>map test</div>
-              </div>
-            )}
-          />
                   
         {/*as it always confuses me, reminder: below is "body-wrap" div closing tag...*/}
         </div>
