@@ -5,7 +5,8 @@ import AllEntries from './Entries/AllEntries';
 import EntryDetail from './Entries/EntryDetail';
 import Contact from './Contact/Contact';
 
-import entries from '../test.json'
+import defaultEntries from '../test.json'
+let entries = defaultEntries.sort((a, b) => b.visitDate.localeCompare(a.visitDate));
 
 //sorting function!
 
