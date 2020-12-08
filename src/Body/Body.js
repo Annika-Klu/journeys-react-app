@@ -9,8 +9,9 @@ import NewPost from './Newpost/NewPost';
 
 import defaultEntries from '../test.json'
 let entries = defaultEntries.sort((a, b) => b.visitDate.localeCompare(a.visitDate));
+//To keep in mind concerning the above function: as of now, I'm not handling data in a JS date format.
+//The date my hard coded blog sample contains is a string. When using actual date, I might have to check if sorting works correctly.
 
-//sorting function!
 
 function Body() {
 
