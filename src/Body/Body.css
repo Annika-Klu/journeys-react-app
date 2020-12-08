@@ -12,9 +12,23 @@
   line-height: 1.5em;
 }
 
+.page-heading {
+  margin-top: 5%;
+  font-family: flood-std, sans-serif;
+  font-size: 1.8em;
+  color: rgba(27, 134, 170, 0.6);
+}
+
 .title {
   font-family: flood-std, sans-serif;
   font-size: 1.2em;
+}
+
+.single-page {
+  color: rgba(27, 134, 170, 0.6);
+  width: 60%;
+  margin: 5% 0 0 20%;
+  height: 100vh;
 }
 
 /*ENTRIES*/
@@ -133,13 +147,6 @@
     width: 50%;
 }
   
-.map-heading {
-    margin-top: 7%;
-    font-family: flood-std, sans-serif;
-    font-size: 1.5em;
-    color: rgba(27, 134, 170, 0.6);
-}
-  
   /* Responsiveness - map area */
   
 @media only screen and (max-width: 750px) {
@@ -155,15 +162,23 @@
   margin: 5% 0 2% 0;
 }
 
-.contact-page {
-  color: rgba(27, 134, 170, 0.6);
-  width: 60%;
-  margin: 5% 0 0 20%;
-  height: 100vh;
-}
-
 #contact-details {
   margin-left: -5%;
   list-style-type: none;
   list-style-position: inside;
+}
+
+/*New Post*/
+
+form input {
+  margin: 0.5em;
+  padding: 0.5em;
+  border-style: none;
+  background-color: rgba(27, 134, 170, 0.1);
+  border-radius: 0.5em;
+}
+
+#description {
+  width: 40vw;
+  height: 20vh;
 }

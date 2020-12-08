@@ -1,6 +1,6 @@
 function Contact() {
     return (
-        <div className='contact-page box'>
+        <div className='single-page box'>
             <h2 className='title' id="contact-header">thank you for visiting this blog</h2>
             <p>
                 This is the final project by 
