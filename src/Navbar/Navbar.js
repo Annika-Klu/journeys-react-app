@@ -15,7 +15,7 @@ function Navbar () {
                 </nav>
                 <nav className="nav-right">
                     <div><a id="contact" href="/contact">contact</a></div>
-                    <div><button>new post</button></div>
+                    <div><button><a id="new" href="/new">new post</a></button></div>
                     <div><button>login</button></div>
                 </nav>
             </div>
