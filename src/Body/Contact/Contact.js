@@ -8,6 +8,11 @@ function Contact() {
                 <br/> graduating from Hamburg Coding School
                 <br/> Full-Stack Web Development program
             </p>
+            <p>
+                This fictional travel blog was built using the frontend Javascript framework 'React'.
+                <br/> It displays previews and details for pre-coded blog entries, 
+                <br/> and gets their geographic data from a Google API to display corresponding markers on a map.
+            </p>
             <p hidden={true}>
                 <span className='title'>Thank you</span>
                 <br/> To Teresa for founding this amazing school.
@@ -18,7 +23,7 @@ function Contact() {
                 <br/> ...I sure don't mind going "back to school" if it's with you!
             </p>
             <div>
-                Get in touch!
+                Wanna get in touch?
                 <ul id='contact-details'>
                     <li>Annika Kluepfel</li>
                     <li>Troplowitzstr. 11, 22529 HH</li>
