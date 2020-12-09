@@ -5,7 +5,7 @@ import './Marker.css';
 import Theme from './Theme';
 
 import Geocode from 'react-geocode';
-Geocode.setApiKey(process.env.API_KEY);
+Geocode.setApiKey(process.env.REACT_APP_API_KEY);
 
 let test = [
     {
@@ -75,7 +75,7 @@ class GoogleMap extends Component {
 
         <div style={{height: "100vh", width: "100%"}}>
             <GoogleMapReact
-                bootstrapURLKeys={{key: process.env.API_KEY}}
+                bootstrapURLKeys={{key: process.env.REACT_APP_API_KEY}}
                 defaultCenter={this.state.center}
                 center={this.props.currentCenter}
                 defaultZoom={this.state.zoom}

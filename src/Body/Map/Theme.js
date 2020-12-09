@@ -25,7 +25,7 @@ const Theme = [
                 "saturation": -100
             },
             {
-                "lightness": 65
+                "lightness": 25
             },
             {
                 "visibility": "on"
@@ -100,13 +100,13 @@ const Theme = [
         "elementType": "geometry",
         "stylers": [
             {
-                "hue": "#2da4c5"
+                "color": "#FFFFFF"
             },
             {
-                "lightness": -25
+                "lightness": 20
             },
             {
-                "saturation": 23
+                "saturation": -20
             }
         ]
     },
