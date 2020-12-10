@@ -12,6 +12,11 @@ import entries from '../test.json'
 
 function Body() {
 
+  const someData = {
+    name: 'Joe',
+    age: 20,
+  };
+
   return (
     <>
       <Router>
@@ -26,7 +31,7 @@ function Body() {
                   <AllEntries entries={entries}/>
                 </div>
                 <div className='map-wrap'>
-                  <GoogleMap/>
+                  <GoogleMap passIt={someData} />
                 </div>
               </>
               )}

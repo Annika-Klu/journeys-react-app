@@ -93,6 +93,9 @@ class GoogleMap extends Component {
       zoom: 12,
       activeMarker: null
     }
+
+    console.log("here it is");
+    console.log(props);
   }
   
   _onChildClick = (key, childprops) => {
@@ -105,6 +108,10 @@ class GoogleMap extends Component {
   closeInfoWindow = () => this.setState({activeMarker: null}); 
 
   render() {
+
+    
+    console.log(this.props);
+
     return (
 
       <div style={{height: "100%", width: "100%"}}>
