@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AllEntries from './Entries/AllEntries';
 import GoogleMap from './Map/GoogleMap';
+import TestMap from './Map/TestMap';
 import EntryDetail from './Entries/EntryDetail';
 import Contact from './Contact/Contact';
 
@@ -26,7 +27,8 @@ function Body() {
                   <AllEntries entries={entries}/>
                 </div>
                 <div className='map-wrap'>
-                  <GoogleMap/>
+                  {/* <GoogleMap/> */}
+                  <TestMap entries={entries}/>
                 </div>
               </>
               )}
