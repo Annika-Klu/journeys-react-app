@@ -5,7 +5,7 @@ function Contact() {
                 <h2 className='title' id='contact-header'>thank you for visiting this blog</h2>
                 <p>
                     This is the final project by 
-                    <br/> <span className='title' id='my-name'>Annika Kluepfel</span>
+                    <br/> <span className='title sub-title'>Annika Kluepfel</span>
                     <br/> graduating from Hamburg Coding School
                     <br/> Full-Stack Web Development program
                 </p>

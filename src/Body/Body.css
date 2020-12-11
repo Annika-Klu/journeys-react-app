@@ -9,6 +9,10 @@
   font-size: 2em;
 }
 
+.sub-title {
+  font-size: 1.4em;
+}
+
 .single-page {
   color: rgba(27, 134, 170, 0.6);
   width: 60%;
@@ -220,10 +224,6 @@ button {
 
 #contact-header {
   margin: 5% 0 2% 0;
-}
-
-#my-name {
-  font-size: 1.2em;
 }
 
 #contact-details {

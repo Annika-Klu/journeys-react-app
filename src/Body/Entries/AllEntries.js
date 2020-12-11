@@ -23,7 +23,7 @@ function AllEntries ({entries}) {
                     </Link>
                 </div>
                 <div className='entry-preview-header'>
-                    <h1 className='title'>
+                    <h1 className='title sub-title'>
                         <a 
                             className='title-link' 
                             href={`/post/${index+1}/${entryURL[index]}`}
