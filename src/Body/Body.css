@@ -118,10 +118,10 @@
 .view-all-btn {
   width: 25%;
   margin-top: 10%;
+  background-color: rgb(201, 234, 245);
 }
 
 .view-all-link {
-  color: lightgrey;
   padding: 1em;
 }
 

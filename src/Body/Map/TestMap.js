@@ -73,8 +73,12 @@ function TestMap ({entries}) {
 
     function openInfoWindow (key, childprops) {
         setActiveMarker(parseInt(key));
-        console.log('activeMarker: ' + activeMarker)
-        console.log('key:' + key + ' ' + childprops.title);
+        //below console.log statements reveal that the marker is set correctly corresponding to the key value.
+        //(I noticed that every time you first click on a particular marker again, 
+        //the state value that gets logged still equals the the previous marker's key
+        //but I think that's related to the computing process in that script reading > logging is faster than state value change)
+        console.log('activeMarker: ' + activeMarker + typeof activeMarker)
+        console.log('key:' + key + ' ' + typeof parseInt(key) + childprops.title);
     }
 
     function closeInfoWindow () {
@@ -82,7 +86,7 @@ function TestMap ({entries}) {
     }
 
     // const [center, setCenter] = useState(null);
-    // if (center != null) {
+    // if (mapLocations != null) {
     //     setCenter(
     //         {
     //             lat: mapLocations[0].lat,
@@ -94,6 +98,7 @@ function TestMap ({entries}) {
 
     return (
         <div style={{height: "100%", width: "100%"}}>
+            
             <GoogleMapReact
                 bootstrapURLKeys={{key: process.env.REACT_APP_API_KEY}}
                 defaultCenter={defaultCenter}
@@ -107,7 +112,6 @@ function TestMap ({entries}) {
                     test.map((place, index) => (
                         <Marker
                             key={index+1}
-                            test={index+1}
                             title={place.location}
                             desc={place.description}
                             lat={place.lat}
