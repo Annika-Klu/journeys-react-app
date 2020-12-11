@@ -27,7 +27,7 @@ function EntryDetail ({ entries }) {
                 <span>{entries[id].author}</span>
                 <p>{entries[id].description}</p>
             </div>
-            <button className='view-all-btn'>
+            <button className='bright-btn'>
                 <Link to={`/`} className='view-all-link'>View all entries</Link>
             </button>
         </div>

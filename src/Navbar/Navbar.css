@@ -5,9 +5,8 @@
     justify-content: space-between;
     height: 6vh;
     padding: 1em;
-    /* background-image: url('https://images.pexels.com/photos/19670/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&w=500');
-    background-size: 1000px; */
     background-color: rgba(27, 134, 170, 0.6);
+    font-size: 1.2em;
   }
   
   .nav-left, .nav-right {
@@ -44,7 +43,6 @@
   actually corrupts the basic idea of using icons, namely to provide quick-to-grasp visual information instead of written one */
   
   nav div button {
-    color: rgba(20, 112, 143, 0.6);
     background-color: white;
     /* width: 8em;
     text-align: left; */

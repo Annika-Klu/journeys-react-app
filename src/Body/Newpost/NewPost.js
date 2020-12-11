@@ -5,7 +5,7 @@ function NewPost() {
 
     return (
         <div className='single-page box'>
-            <h2 className='page-heading'>share your journey!</h2>
+            <h2 className='title'>share your journey!</h2>
             <br/>
             <form>
                 <label htmlFor='location'> Which city/place did you travel to?
@@ -22,7 +22,8 @@ function NewPost() {
                     <br/>
                     <input id='description' type='text' required></input>
                 </label>
-            
+                <br/>
+                <button type='submit' id='new-post-btn' className='bright-btn'>share!</button>
             </form>
         </div>
     )
