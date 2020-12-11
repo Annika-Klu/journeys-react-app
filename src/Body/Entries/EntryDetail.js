@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
-function EntryDetail ({entries}) {
+function EntryDetail ({ entries }) {
 
+    //using the post's id parameter (index + 1) from the URL 
+    //in order to display correct entry array item
     let { id } = useParams();
     id--;
     console.log(id);

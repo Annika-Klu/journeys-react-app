@@ -13,7 +13,7 @@ let entries = defaultEntries.sort((a, b) => b.visitDate.localeCompare(a.visitDat
 //The date in my hard coded blog sample is a string. When using actual date, I might have to check if sorting works correctly.
 //also, I'd preferably move the sorting function to server-side if connected to a backend.
 
-function Body() {
+function Body () {
 
   return (
     <>
@@ -37,7 +37,7 @@ function Body() {
 
             {/* ENTRY DETAIL PAGE */}
             <Route 
-              exact path={`/post/:id`}
+              exact path={`/post/:id/:entryURL`}
               render={() => (
                 <>
                   <div className='single-entry-wrap'>
