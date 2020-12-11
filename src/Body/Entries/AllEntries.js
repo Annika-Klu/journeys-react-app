@@ -2,9 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function AllEntries ({entries}) {
-    
-    console.log(entries);
-    console.log(entries[1].title);
 
     let entryURL = entries.map((entry) => {
         let entryTitle = entry.title;
@@ -18,13 +15,21 @@ function AllEntries ({entries}) {
             <div key={index} className='entry-preview box'>
                 <div className='entry-img-wrap'>
                     <Link to={`/post/${index+1}/${entryURL[index]}`}>
-                    {/* <Link to={`/post/${index+1}`}> */}
-                        <img alt={entry.title} src={entry.locationImg} className='entry-img'/>
+                        <img 
+                            alt={entry.title} 
+                            src={entry.locationImg}
+                            className='entry-preview-img'
+                        />
                     </Link>
                 </div>
                 <div className='entry-preview-header'>
                     <h1 className='title'>
-                        <a className='title-link' href={`/post/${index+1}/${entryURL[index]}`}>{entry.title}</a>
+                        <a 
+                            className='title-link' 
+                            href={`/post/${index+1}/${entryURL[index]}`}
+                        >
+                            {entry.title}
+                        </a>
                     </h1>
                     <div>
                         {entry.visitDate}

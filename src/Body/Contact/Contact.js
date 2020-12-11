@@ -1,7 +1,7 @@
 function Contact() {
     return (
         <div className='single-page box'>
-            <h2 className='page-heading' id="contact-header">thank you for visiting this blog</h2>
+            <h2 className='title' id="contact-header">thank you for visiting this blog</h2>
             <p>
                 This is the final project by 
                 <br/> <span className='title'>Annika Kluepfel</span>

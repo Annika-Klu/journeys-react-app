@@ -8,16 +8,21 @@ function EntryDetail ({ entries }) {
     let { id } = useParams();
     id--;
     console.log(id);
+
+    let entryImageSource = {
+        backgroundImage: `url(${entries[id].locationImg})`,
+    }
     
     return (
         <div className='entry-detail box'>
-            <img src={`${entries[id].locationImg}`} className="entry-img detail-img"/>
-            <h2 className='title detail-title'>
-                A journey to 
-                <br/>
-                {entries[id].location}, {entries[id].country}
-            </h2>
-            <div className='detail-text'>
+            <div style={entryImageSource} className='entry-detail-img'>
+                <h2 className='title entry-detail-title'>
+                    A journey to 
+                    <br/>
+                    {entries[id].location}, {entries[id].country}
+                </h2>
+            </div>           
+            <div className='entry-detail-text'>
                 <h2>{entries[id].title}</h2>
                 <span>{entries[id].author}</span>
                 <p>{entries[id].description}</p>
