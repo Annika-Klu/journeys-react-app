@@ -3,7 +3,7 @@
 .header-wrapper {
     display: flex;
     justify-content: space-between;
-    height: 6vh;
+    height: 10%;
     padding: 1em;
     background-color: rgba(27, 134, 170, 0.6);
     font-size: 1.2em;
@@ -37,7 +37,7 @@
   /* Note on the ICONS:
   First of all, I've created them so no copyright infringement there :)
   They can be viewed by uncommenting the btn:before code below.
-  To adjust the layout, the 'width: 8em' and 'text-align: left' in the nav div btn should also be used.
+  To adjust the layout at least a bit - still won't be accurate -, the 'width: 8em' and 'text-align: left' in the nav div btn should also be used.
   I added them to show I knew how bc it was in the specs, but they do not match my design well. 
   Also, though it's a very common practice, combining them with the info in writing 
   actually corrupts the basic idea of using icons, namely to provide quick-to-grasp visual information instead of written one */
