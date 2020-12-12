@@ -1,6 +1,6 @@
 /*GENERAL*/
 
-.body-wrap {
+.flex-wrap {
   display: flex;
 }
 
@@ -35,6 +35,10 @@
   border-radius: 0.5em;
   padding: 1.5em 1em;
   line-height: 1.5em;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 button {
@@ -156,6 +160,18 @@ button {
   position: absolute;
   left: 20%;
   top: 60%;
+}
+
+.entry-detail-author {
+  align-items: center;
+  justify-content: center;
+}
+
+.entry-detail-author-img {
+  width: 3em;
+  height: 3em;
+  border-radius: 3em;
+  margin-right: 1em;
 }
 
 .entry-detail-text {

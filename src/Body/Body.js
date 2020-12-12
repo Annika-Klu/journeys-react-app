@@ -18,7 +18,7 @@ function Body () {
   return (
     <>
       <Router>
-        <div className="body-wrap">
+        <div className='flex-wrap'>
           
           {/* ALL ENTRIES + MAP */}
             <Route 

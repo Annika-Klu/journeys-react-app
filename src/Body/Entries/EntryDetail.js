@@ -17,14 +17,15 @@ function EntryDetail ({ entries }) {
         <div className='entry-detail box'>
             <div style={entryImageSource} className='entry-detail-img'>
                 <h2 className='title entry-detail-title'>
-                    A journey to 
-                    <br/>
-                    {entries[id].location}, {entries[id].country}
+                    {entries[id].title}
                 </h2>
             </div>           
             <div className='entry-detail-text'>
-                <h2>{entries[id].title}</h2>
-                <span>{entries[id].author}</span>
+                <h2>My journey to {entries[id].location}, {entries[id].country}</h2>
+                <span className='bold flex-wrap entry-detail-author'>
+                    <img className='entry-detail-author-img' src={entries[id].authorImg} alt={entries[id].author}/>
+                    {entries[id].author}
+                </span>
                 <p>{entries[id].description}</p>
             </div>
             <button>
