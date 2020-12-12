@@ -23,7 +23,7 @@ function NewPost() {
                     <input id='description' type='text' required></input>
                 </label>
                 <br/>
-                <button type='submit' id='new-post-btn' className='bright-btn'>share!</button>
+                <button type='submit' id='share-post-btn' className='bright-btn'>share!</button>
             </form>
         </div>
     )

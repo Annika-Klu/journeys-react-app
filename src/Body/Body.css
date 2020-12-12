@@ -35,6 +35,7 @@
 
 button {
   border-style: none;
+  font-size: 0.9em;
   margin-top: 10%;
   padding: 1em 0.5em;
   color: rgba(27, 134, 170, 0.6);
@@ -247,7 +248,7 @@ form input {
   height: 20vh;
 }
 
-#new-post-btn:hover {
+#share-post-btn:hover {
   background-color: rgba(27, 134, 170, 0.6);
   color: white;
 }
