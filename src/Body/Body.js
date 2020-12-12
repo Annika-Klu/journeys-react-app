@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 
 import AllEntries from './Entries/AllEntries';
-// import GoogleMap from './Map/GoogleMap';
+import GoogleMap from './Map/GoogleMap';
 import EntryDetail from './Entries/EntryDetail';
 import Contact from './Contact/Contact';
 import NewPost from './Newpost/NewPost';
@@ -28,9 +28,9 @@ function Body () {
                 <div className='all-entries-wrap'>
                   <AllEntries entries={entries}/>
                 </div>
-                {/* <div className='map-wrap'>
-                  <GoogleMap/>
-                </div> */}
+                <div className='map-wrap'>
+                  <GoogleMap entries={entries}/>
+                </div>
               </>
               )}
             />
