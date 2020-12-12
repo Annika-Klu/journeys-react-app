@@ -27,8 +27,12 @@ function EntryDetail ({ entries }) {
                 <span>{entries[id].author}</span>
                 <p>{entries[id].description}</p>
             </div>
-            <button className='bright-btn'>
-                <Link to={`/`} className='view-all-link'>View all entries</Link>
+            <button>
+                <Link to={`/`} className='view-all-link'>
+                    <img
+                        alt='back to all entries'
+                        src="https://s.svgbox.net/hero-solid.svg?ic=arrow-narrow-left&fill=1b86aa80" width="32" height="32"/>
+                </Link>
             </button>
         </div>
     )
