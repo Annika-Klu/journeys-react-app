@@ -7,10 +7,13 @@ import EntryDetail from './Entries/EntryDetail';
 import Contact from './Contact/Contact';
 import NewPost from './Newpost/NewPost';
 
+//------BEFORE BACKEND WAS ADDED
 //import defaultEntries from '../test.json'
 //let entries = defaultEntries.sort((a, b) => b.visitDate.localeCompare(a.visitDate));
+//----is OUTDATED. The sorting now happens in the backend
 
-//Above was before I added backend. The sorting now happens in the backend
+//BACKEND REPO: PRIVATE /annika-klu/journeys-react-backend
+//there is also a version deployed to Heroku but I will stick with the local one so I can update entries
 
 function Body () {
 
