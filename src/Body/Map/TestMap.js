@@ -42,13 +42,15 @@ let test = [
 function TestMap ({entries}) {
     
     let mapLocations = [];
+    let newMarkers = undefined;
+    const [Markers, setMarkers] = useState(newMarkers);
 
     //useEffect to make sure the data fetch only runs again if the entries array changes
     //but is not triggered again every time the DOM renders again, e. g. when a state gets updated
     useEffect(() => {
         entries.map(entry => (
         Geocode.fromAddress(entry.location).then(
-            response => {
+            await (response => {
                 const { lat, lng } = response.results[0].geometry.location;
                 console.log(lat, lng);
                 let newLocation = {
@@ -65,6 +67,21 @@ function TestMap ({entries}) {
             error => {
                 console.error(error);
             }
+        )).then(
+            newMarkers = 
+                mapLocations.map((place, index) => (
+                    <Marker
+                        key={index+1}
+                        title={place.location}
+                        desc={place.description}
+                        lat={place.lat}
+                        lng={place.lng}
+                        activeMarker={activeMarker}
+                        closeWindow={closeInfoWindow}
+                    />
+            ).then(
+                setMarkers(newMarkers)
+            ))
         )))
         console.log(mapLocations);
     }, [entries]);
@@ -107,8 +124,10 @@ function TestMap ({entries}) {
                 onChildClick={openInfoWindow}
                 options={{styles: Theme}}
             >
+            
+            { mapLocations ? Markers : <></>}
 
-                {
+                {/* {
                     test.map((place, index) => (
                         <Marker
                             key={index+1}
@@ -119,7 +138,7 @@ function TestMap ({entries}) {
                             activeMarker={activeMarker}
                             closeWindow={closeInfoWindow}
                         />
-                ))}
+                ))} */}
 
           </GoogleMapReact>
         </div>
