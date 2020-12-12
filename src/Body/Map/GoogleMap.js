@@ -1,142 +1,133 @@
-import React, { Component } from 'react';
+import React, {useState, useEffect} from 'react';
 import GoogleMapReact from 'google-map-react';
-
-import './Marker.css';
 import Theme from './Theme';
 
-//how do I pass props here so I can pass down the entries from body component
-//import blogdata from '../../test.json'
+import AddGeoData from './AddGeoData';
+
+import Marker from './Marker';
+import './Marker.css';
 
 import Geocode from 'react-geocode';
 Geocode.setApiKey(process.env.REACT_APP_API_KEY);
 
-let test = [
-    {
-        "location" : "Hamburg",
-        lat: 53.551085,
-        lng: 9.993682,
-        "description": "Wonderful hanseatic city"
-    },
-    {
-        "location" : "Lübeck",
-        lat : 53.86546735,
-        lng : 10.6865593,
-        "description": "Ich liebe Marzipan."
-    },
-    {
-      "location" : "Hannover",
-      lat : 52.3758916,
-      lng : 9.7320104,
-      "description": "Let's see..."
-  }
-]
+function GoogleMap ({entries}) {
 
-// eslint-disable-next-line
-{/* marker with show attribute. If activemarker corresponds to item's key > additional div as info window */}
-const Marker = (props) => (
-    <React.Fragment>
-      <div className='pin bounce'/>
+    const defaultZoom = 12;
 
-      {props.markerKey === props.activeMarker && (
-        <div className='infoWindow'>
-          <div 
-            onClick={props.exit}
-            className='closeWindow'
-          >
-            x
-          </div> <br/>
-          <h3>{props.title}</h3><br/>
-          {props.desc}
-        </div>
-      )}
+    // ------------DEFAULT CENTER
+    // the map's defaultCenter value needs to be there from the start and can't be changed.
+    // Therefore I can't set the value via useState
+    // I tried to get default center data from Geocode API in the body component and pass it from there, 
+    // but still encountered the same problem as described below at --SETTING CENTER
 
-    </React.Fragment>
-)
-
-//Getting lat and lng for each entry, creating new array with only the object keys that are relevant for markers
-//any way to control execution of data fetch code 
-//e. g. if combined with a state that serves to re-set the map center?
-//------------------------------------------------
-// let mapLocations = [];
-// blogdata.map(entry => (
-//   Geocode.fromAddress(entry.location).then(
-//     response => {
-//       const { lat, lng } = response.results[0].geometry.location;
-//       console.log(lat, lng);
-//       let newLocation = {
-//         "title" : entry.title,
-//         "location" : entry.location,
-//         "country" : entry.country,
-//         "lat" : lat,
-//         "lng" : lng,
-//         "author" : entry.author,
-//         "description" : entry.description
-//       }
-//       mapLocations.push(newLocation);
-//     },
-//     error => {
-//       console.error(error);
-//     }
-//   )
-// ))
-// console.log(mapLocations)
-
-class GoogleMap extends Component {
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      center: {
-        lat: 53.551085,
-        lng: 9.993682
-      },
-      zoom: 12,
-      activeMarker: null
+    let defaultCenter = {
+        lat: 30.4277547,
+        lng: -9.5981072
     }
-  }
-  
-  _onChildClick = (key, childprops) => {
-    this.setState({activeMarker: parseInt(key)});
-    console.log('The key value ascribed to item as a child of GoogleMap component: ' + key);
-    console.log('current value of activemarker state: ' + this.state.activeMarker);
-    console.log('markerKey prop of pin:' + childprops.markerKey);
-  }
-   
-  closeInfoWindow = () => this.setState({activeMarker: null}); 
 
-  render() {
+    //-------------GETTING LNG/LAT DATA FOR EACH ENTRY
+
+    // as placing marker for each location requires latitude and longitude,
+    // the function AddGeoData (see imports) uses Geocode API to create new entry object that also includes lat/lng
+    // it is applied in the useEffect below.
+
+    //-------------SETTING CENTER TO LATEST ENTRY
+
+    // NOT IN USE. PROBLEM: map does center but interferance with onGoogleAPIloaded? > markers not rendered anymore
+    
+    // since entries are received sorted by date, the latest entry would be the one at index pos. 1
+    // I tried to grab this the data for the center from useEffect > mapLocations array but could not make it work.
+
+    // const [center, setCenter] = useState(undefined);
+
+    // async function setCenterFunct () {
+    //     let centerEntry = await addGeoData(entries[1]);
+    //     console.log('centerentry ' + centerEntry);
+    //     setCenter({lat : centerEntry.lat, lng: centerEntry.lng});
+    // }
+    
+    // in below useEffect, each entry is transformed via addGeoData funct,
+    // then added to a new array 'mapLocations'.
+    // (useEffect > data fetch executed again if the entries array changes
+    // but not triggered again every time the DOM renders again, e. g. when a state gets updated)
+    
+    let mapLocations = [];
+
+    useEffect(() => {
+        //setCenterFunct();
+        entries.map(entry => (
+            AddGeoData(entry)
+            .then((response => mapLocations.push(response)))),
+            console.log('mapLocatoins:'),
+            console.log(mapLocations)
+        );
+        
+    }, [entries]);
+
+    //-------------SHOWING MARKERS
+
+    //new mapLocations array is the source the markers get rendered from
+
+    const [markers, setMarkers] = useState([]);
+    
+    function renderMarkers () {
+        let newMarkers = mapLocations.map((place, index) => (
+            <Marker
+                key={index+1}
+                title={place.location}
+                desc={place.description}
+                lat={place.lat}
+                lng={place.lng}
+                activeMarker={activeMarker}
+                closeWindow={closeInfoWindow}
+            />
+        ))
+        setMarkers(newMarkers);
+        console.log(newMarkers);
+        return markers;
+    };
+
+    // the renderMarkers funct gets called in <GoogleMapReact> component > after google API elements loaded
+
+    //-------------INFO WINDOW
+
+    // opening & closing functions for info window, connected to state that gets set to key value of element clicked.
+    // it used to work, does not anymore and I could not figure out why
+
+    const [activeMarker, setActiveMarker] = useState(null);
+
+    function openInfoWindow (key, childprops) {
+        setActiveMarker(parseInt(key));
+        // below console.log statements reveal that the marker is set correctly corresponding to the key value.
+        // (I noticed that every time you first click on a particular marker again, 
+        // the state value that gets logged still equals the the previous marker's key
+        // but I think that's related to the computing process in that script reading > logging is faster than state value change)
+        console.log(`activeMarker: ${activeMarker} ${typeof activeMarker}`)
+        console.log(`key: ${key} ${typeof parseInt(key)} ${childprops.title}`);
+    }
+
+    function closeInfoWindow () {
+        setActiveMarker(null);
+    }
+
     return (
+        <div style={{height: "100%", width: "100%"}}>
 
-      <div style={{height: "100%", width: "100%"}}>
-          <GoogleMapReact
-              bootstrapURLKeys={{key: process.env.REACT_APP_API_KEY}}
-              defaultCenter={this.state.center}
-              //center={this.props.currentCenter}
-              defaultZoom={this.state.zoom}
-              onChildClick={this._onChildClick}
-              options={{styles: Theme}}
-          >
+            <GoogleMapReact
+                bootstrapURLKeys={{key: process.env.REACT_APP_API_KEY}}
+                defaultCenter={defaultCenter}
+                defaultZoom={defaultZoom}
+                //center={center}
+                onChildClick={openInfoWindow}
+                options={{styles: Theme}}
+                onGoogleApiLoaded={renderMarkers}
+            >
 
-            {
-            //after data fetch: conditional render -- mapLocations &&
-              test.map((place, index) => (
-                  <Marker
-                      key={index+1}
-                      markerKey={index+1}
-                      title={place.location}
-                      desc={place.description}
-                      lat={place.lat}
-                      lng={place.lng}
-                      show={this.state.show}
-                      activeMarker={this.state.activeMarker}
-                      exit={this.closeInfoWindow}
-                  />
-            ))}
+                {markers}
 
           </GoogleMapReact>
         </div>
-      )
-    }
-  }
+    )
+}
 
-  export default GoogleMap;
+export default GoogleMap;
