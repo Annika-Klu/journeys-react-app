@@ -11,35 +11,76 @@ body {
   font-size: 0.9em;
 }
 
+.user-msg {
+  text-align: center;
+  margin-top: 10%;
+  font-size: 1.5em;
+}
+
 a {
   text-decoration: none;
   color: rgba(27, 134, 170, 0.5);
-}
-
-button {
-  border-style: none;
-    padding: 0.5em;
-    width: 6em;
-    border-radius: 0.5em;
 }
 
 a:hover, button:hover {
   font-weight: bold;
 }
 
-/* in case I wanna add an animation...
-
-  @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.bold {
+  font-weight: bold;
 }
-} */
+
+.flex-wrap {
+  display: flex;
+}
+
+.title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 2em;
+}
+
+.title-link:hover {
+  color: rgba(27, 134, 170, 0.6)
+}
+
+.sub-title {
+  font-size: 1.4em;
+}
+
+.box {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 0.5em;
+  line-height: 1.5em;
+}
+
+button {
+  border-style: none;
+  width: 6em;
+  border-radius: 0.5em;
+  font-size: 0.9em;
+  margin-top: 10%;
+  padding: 1em 0.5em;
+  color: rgba(27, 134, 170, 0.6);
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.bright-btn {
+  width: 25%;
+  background-color: rgba(27, 134, 170, 0.05);
+}
+
+/* GENERAL SINGLE PAGE SETTINGS*/
+
+.single-page {
+  color: rgba(27, 134, 170, 0.6);
+  width: 70%;
+  margin: 5% 0 0 15%;
+  height: 100vh;
+  padding: 1.5em;
+}
+
+.single-page-content {
+  width: 80%;
+  margin: 10% 0 0 10%;
+}

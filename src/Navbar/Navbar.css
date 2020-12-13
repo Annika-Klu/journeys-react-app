@@ -63,3 +63,11 @@
     margin: 0 0.5em;
     float: left;
   } */
+
+@media (max-width: 950px) {
+  #slogan {
+    display: none;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-ease-out;
+  }
+}

@@ -38,7 +38,7 @@ function Body () {
   }, [])
 
   if (entries === null) {
-    return (<div>loading...</div>)
+    return (<div className='user-msg'>loading...</div>)
   } 
   
   else return (
@@ -71,8 +71,7 @@ function Body () {
                   </div>
                 </>
               )}
-            />
-                  
+            />         
         {/*as it always confuses me, reminder: below is "body-wrap" div closing tag...*/}
         </div>
 

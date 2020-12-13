@@ -10,7 +10,7 @@ function Navbar () {
                         <a href='/'>
                             <span id='logo'>JOURNEYS. </span>
                         </a>
-                        share your travel experiences
+                        <span id='slogan'>share your travel experiences</span>
                     </div>
                 </nav>
                 <nav className='nav-right'>
