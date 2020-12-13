@@ -1,29 +1,34 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import  axios from 'axios';
 
 import Geocode from 'react-geocode';
-    Geocode.setApiKey(process.env.REACT_APP_API_KEY);
+Geocode.setApiKey(process.env.REACT_APP_API_KEY);
+
+
 
 //'https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg'
 
 function NewPost() {
 
    const [post, setPost] = useState({ });
+   const history = useHistory();
 
+   //in spite of return statement the function still adds the post even if there's an error
    async function submitPost (event) {
        event.preventDefault();
        console.log(post);
-       let response = 
-        await Geocode.fromAddress(post.location)
+       let response = await Geocode.fromAddress(post.location)
         .catch(err => {if (err.status === undefined) 
             {return alert('Sorry, we cannot find this place on the map. Please check your location entry for typos and look up alternative English spellings')}});
             console.log(response);
-        await axios.post('/new', post)
+        axios.post('/new', post)
             .then(function (response) {
             console.log(response); })
             .catch(function (error) {
             console.log(error);}
         );
+        history.push('/');
    }
 
     //if login functionality >> render 'user' conditionally based on whether someone is logged in:
@@ -34,12 +39,12 @@ function NewPost() {
             <div className='single-page-content'>
                 <h1 className='title new-post-header'>your journey</h1>
                 <form id='submit-form' onSubmit={submitPost}>
-                    <label htmlFor='title'> Your trip in a nutshell!
+                    <label htmlFor='title'> Choose an enticing title for your trip!
                         <br/>
                         <input
                             name='title' 
                             type='text'
-                            maxLength='45'
+                            maxLength='35'
                             value={post.title}
                             onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}
                             required>
@@ -81,9 +86,10 @@ function NewPost() {
                         </input>
                     </label>
                     <br/><br/>
+                    <p className='form-info'> Info on images: No file upload available, please paste valid image web address e.g. 'https//website.com...imageName.jpg'</p>
                     <label htmlFor='locationImg'> If you can, share visual impressions, too!
                         <br/>
-                        <p className='form-info'>No file upload available, please paste valid image web address e.g. http//website.com...imageName.jpg'</p>
+                        
                         <input
                             name='locationImg' 
                             type='text'
