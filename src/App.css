@@ -32,6 +32,7 @@ a:hover, button:hover {
 
 .flex-wrap {
   display: flex;
+  justify-content: space-around;
 }
 
 .title {
@@ -75,12 +76,18 @@ button {
 .single-page {
   color: rgba(27, 134, 170, 0.6);
   width: 70%;
-  margin: 5% 0 0 15%;
+  margin: 5% auto;
   height: 100vh;
   padding: 1.5em;
 }
 
+@media only screen and (max-width: 600px) {
+  .single-page {
+    width: 100%;
+  }
+}
+
 .single-page-content {
   width: 80%;
-  margin: 10% 0 0 10%;
+  margin: 10% auto;
 }

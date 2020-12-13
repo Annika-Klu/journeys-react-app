@@ -29,10 +29,10 @@ function Body () {
 
     getData();
 
-    //timer. Every minute the data gets fetched > entries updated
+    //timer. Every 5 minutes the data gets fetched > entries updated
     const interval=setInterval(()=>{
       getData()
-     },60000)
+     },300000)
        
      return()=>clearInterval(interval)
   }, [])

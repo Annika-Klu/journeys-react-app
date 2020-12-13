@@ -1,3 +1,7 @@
+/* NOTE: This page is NOT fully responsive
+I included some media queries, but I was more focused on other
+technical issues when creating this page. */
+
 /*ENTRIES*/
 
 /*all entries page*/
@@ -67,7 +71,7 @@
   }
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (min-width: 600px) and (max-width: 950px) {
   .all-entries-wrap {
       grid-template-columns: auto;
       width: 50%;
@@ -82,7 +86,28 @@
   .entry-preview-text-wrap {
     margin-bottom: 2em;
   }
-  
+}
+
+@media only screen and (max-width: 600px) {
+ .flex-wrap {
+    position: relative;
+    display: flex;
+    width: 100%;
+    background-color: white;
+    flex-direction: row-reverse;
+  }
+  .map-wrap {
+    width: 100vw;
+    margin: 2em;
+    height: 20em;
+  }
+  .all-entries-wrap {
+    position: absolute;
+    top: 25em;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /*single entry page*/
@@ -215,7 +240,7 @@
 /*NEW POST*/
 
 form input {
-  margin: 0.5em;
+  margin: 1em;
   padding: 0.5em;
   border-style: none;
   background-color: rgba(27, 134, 170, 0.05);

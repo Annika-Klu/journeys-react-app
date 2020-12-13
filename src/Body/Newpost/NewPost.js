@@ -1,7 +1,6 @@
 function NewPost() {
-    // I did not bother to code an actual post request here bc there's no backend to handle it.
-    // If I had, I would have used axios request handler.
-    // This is just to demonstrate a little more of the page's look and feel
+    
+    //to come: post request. I've decided to try and use fetch
 
     return (
         <div className='single-page box'>
