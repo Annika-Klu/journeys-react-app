@@ -74,20 +74,25 @@ button {
 /* GENERAL SINGLE PAGE SETTINGS*/
 
 .single-page {
+  box-sizing: border-box;
   color: rgba(27, 134, 170, 0.6);
   width: 70%;
   margin: 5% auto;
-  height: 100vh;
+  height: fit-content;
   padding: 1.5em;
+}
+
+.single-page-content {
+  width: 80%;
+  margin: 5% auto;
 }
 
 @media only screen and (max-width: 600px) {
   .single-page {
     width: 100%;
   }
-}
-
-.single-page-content {
-  width: 80%;
-  margin: 10% auto;
+  .single-page-content {
+    width: 100%;
+    margin: 0;
+  }
 }

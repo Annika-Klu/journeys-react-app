@@ -239,16 +239,31 @@ technical issues when creating this page. */
 
 /*NEW POST*/
 
+.new-post-header {
+  font-size: 2.5em;
+}
+
+form {
+  box-sizing: border-box;
+  margin-top: 2em;
+  font-size: 1.2em;
+}
+
 form input {
-  margin: 1em;
-  padding: 0.5em;
+  margin: 1em 0;
+  padding: 1em;
+  width: 80%;
   border-style: none;
+  color: lightgrey;
   background-color: rgba(27, 134, 170, 0.05);
   border-radius: 0.5em;
 }
 
+.form-info {
+  font-size: 0.8em;
+}
+
 #description {
-  width: 40vw;
   height: 20vh;
 }
 

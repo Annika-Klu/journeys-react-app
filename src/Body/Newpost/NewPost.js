@@ -1,29 +1,140 @@
+import React, { useState } from 'react';
+import  axios from 'axios';
+
+import Geocode from 'react-geocode';
+    Geocode.setApiKey(process.env.REACT_APP_API_KEY);
+
+//'https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg'
+
 function NewPost() {
-    
-    //to come: post request. I've decided to try and use fetch
+
+   const [post, setPost] = useState({ });
+
+   async function submitPost (event) {
+       event.preventDefault();
+       console.log(post);
+       let response = 
+        await Geocode.fromAddress(post.location)
+        .catch(err => {if (err.status === undefined) 
+            {return alert('Sorry, we cannot find this place on the map. Please check your location entry for typos and look up alternative English spellings')}});
+            console.log(response);
+        await axios.post('/new', post)
+            .then(function (response) {
+            console.log(response); })
+            .catch(function (error) {
+            console.log(error);}
+        );
+   }
+
+    //if login functionality >> render 'user' conditionally based on whether someone is logged in:
+    //input field or name of logged in user
 
     return (
         <div className='single-page box'>
-            <h2 className='title'>share your journey!</h2>
-            <br/>
-            <form>
-                <label htmlFor='location'> Which city/place did you travel to?
+            <div className='single-page-content'>
+                <h1 className='title new-post-header'>your journey</h1>
+                <form id='submit-form' onSubmit={submitPost}>
+                    <label htmlFor='title'> Your trip in a nutshell!
+                        <br/>
+                        <input
+                            name='title' 
+                            type='text'
+                            maxLength='45'
+                            value={post.title}
+                            onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}
+                            required>
+                        </input>
+                    </label>
+                    <br/><br/>
+                    <label htmlFor='location'> Which city, or place did you travel to?
+                        <br/>
+                        <input
+                            name='location' 
+                            type='text'
+                            value={post.location}
+                            onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}
+                            required>
+                        </input>
+                    </label>
+                    <br/><br/>
+                    {/* to improve: get country info from Geocode API, 
+                    don't leave it to the user to respond correctly... ;) or drop-down with all countries */}
+                    <label htmlFor='country'> Which country is it in?
+                        <br/>
+                        <input
+                            name='country' 
+                            type='text'
+                            value={post.country}
+                            onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}
+                            required>
+                        </input>
+                    </label>
+                    <br/><br/>
+                    <label htmlFor='visitDate'> When did your trip start?
+                        <br/>
+                        <input
+                            name='visitDate'
+                            type='date'
+                            value={post.visitDate} 
+                            onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}
+                            required>
+                        </input>
+                    </label>
+                    <br/><br/>
+                    <label htmlFor='locationImg'> If you can, share visual impressions, too!
+                        <br/>
+                        <p className='form-info'>No file upload available, please paste valid image web address e.g. http//website.com...imageName.jpg'</p>
+                        <input
+                            name='locationImg' 
+                            type='text'
+                            value={post.locationImg}
+                            onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}
+                            >                    
+                        </input>
+                    </label>
+                    <br/><br/>
+                    <label htmlFor='authorImg'> Your profile picture
+                        <br/>
+                        <input
+                            name='authorImg' 
+                            type='text'
+                            value={post.authorImg}
+                            onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}
+                            >
+                        </input>
+                    </label>
+                    <br/><br/>
+                    <label htmlFor='author'> Your name
+                        <br/>
+                        <input
+                            name='author' 
+                            type='text'
+                            value={post.author}
+                            onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}
+                            required>
+                        </input>
+                    </label>
+                    <br/><br/>
+                    <label htmlFor='description'> 
+                        What did you do, what did you learn? <br/>
+                        Share your experiences!
+                            <br/>
+                            <input
+                                name='description'
+                                type='text'
+                                value={post.description}
+                                onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}
+                                required>
+                            </input>
+                    </label>
                     <br/>
-                    <input id='location' type='text' required></input>
-                </label>
-                <br/> <br/>
-                <label htmlFor='travelDate'> When did your trip start?
-                    <br/>
-                    <input id='travelDate' type='date' required></input>
-                </label>
-                <br/> <br/>
-                <label htmlFor='description'> Describe your experiences in a few sentences!
-                    <br/>
-                    <input id='description' type='text' required></input>
-                </label>
-                <br/>
-                <button type='submit' id='share-post-btn' className='bright-btn'>share!</button>
-            </form>
+                    <button
+                        type='submit'
+                        id='share-post-btn'
+                        className='bright-btn'> share!
+                    </button>
+                </form>
+            </div>
         </div>
     )
 }
