@@ -10,7 +10,7 @@ import NewPost from './Newpost/NewPost';
 //------BEFORE BACKEND WAS ADDED
 //import defaultEntries from '../test.json'
 //let entries = defaultEntries.sort((a, b) => b.visitDate.localeCompare(a.visitDate));
-//----is OUTDATED. The sorting now happens in the backend
+//----is OUTDATED. The sorting now also happens in the backend
 
 //BACKEND REPO: PRIVATE /annika-klu/journeys-react-backend
 //there is also a version deployed to Heroku but I will stick with the local one so I can update entries
@@ -18,10 +18,15 @@ import NewPost from './Newpost/NewPost';
 function Body () {
 
   const [entries, setEntries] = useState(null)
+  const [error, setError] = useState(null);
 
   const getData = () =>
     fetch(`/all`)
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+        setError(`a problem ocurred when loading the data: ${res.statusText}`);
+        }
+        return res.json()})
       .then((data) => setEntries(data))
       .catch((err) => console.log(err))
 
@@ -30,15 +35,20 @@ function Body () {
     getData();
 
     //timer. Every 5 minutes the data gets fetched > entries updated
-    const interval=setInterval(()=>{
-      getData()
-     },300000)
+    // const interval=setInterval(()=>{
+    //   getData()
+    //  },300000)
        
-     return()=>clearInterval(interval)
+    //  return()=>clearInterval(interval)
   }, [])
 
+  // as long as there is no value for entries, the user will be shown a 'loading message'
+  // if entries cannot be fetched, it will be an error message
+
   if (entries === null) {
-    return (<div className='user-msg'>loading...</div>)
+    return (
+      error ? <div className='user-msg'>{error}</div> : <div className='user-msg'>loading...</div>
+    )
   } 
   
   else return (

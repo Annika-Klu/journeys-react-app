@@ -102,7 +102,7 @@ function GoogleMap ({entries}) {
         // (I noticed that every time you first click on a particular marker again, 
         // the state value that gets logged still equals the the previous marker's key
         // but I think that's related to the computing process in that script reading > logging is faster than state value change)
-        console.log(`activeMarker: ${activeMarker} ${typeof activeMarker}`)
+        console.log(`activeMarker: ${activeMarker} ${typeof activeMarker}`);
         console.log(`key: ${key} ${typeof parseInt(key)} ${childprops.title}`);
     }
 
