@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
+//components
 import AllEntries from './Entries/AllEntries';
 import GoogleMap from './Map/GoogleMap';
 import EntryDetail from './Entries/EntryDetail';
@@ -38,10 +39,17 @@ function Body () {
     // const interval=setInterval(()=>{
     //   getData()
     //  },300000)
-       
+      
     //  return()=>clearInterval(interval)
   }, [])
 
+  // ------NOTE ON MAP LOCATIONS
+  // Using Geocode, I tried to create mapLocations array (containing lat/lng) here so that I could pass it directly
+  // to GoogleMap Component, rendering the GoogleMap conditionally only if "mapLocations" was not null
+  // but I could not resolve the synchronity issue and kept getting the message that "mapLocations is null"
+  
+
+  // ------RENDERED DATA
   // as long as there is no value for entries, the user will be shown a 'loading message'
   // if entries cannot be fetched, it will be an error message
 
@@ -49,9 +57,7 @@ function Body () {
     return (
       error ? <div className='user-msg'>{error}</div> : <div className='user-msg'>loading...</div>
     )
-  } 
-  
-  else return (
+  } else return (
     <>
       <Router>
         <div className='flex-wrap'>

@@ -2,15 +2,15 @@ import React, {useState, useEffect} from 'react';
 import GoogleMapReact from 'google-map-react';
 import Theme from './Theme';
 
-import AddGeoData from './AddGeoData';
-
 import Marker from './Marker';
 import './Marker.css';
 
+//Elements for using Geocode API
+import AddGeoData from './AddGeoData';
 import Geocode from 'react-geocode';
 Geocode.setApiKey(process.env.REACT_APP_API_KEY);
 
-function GoogleMap ({entries}) {
+function GoogleMap ({ entries }) {
 
     const defaultZoom = 12;
 
@@ -47,22 +47,25 @@ function GoogleMap ({entries}) {
     //     console.log('centerentry ' + centerEntry);
     //     setCenter({lat : centerEntry.lat, lng: centerEntry.lng});
     // }
-    
+
+    //--- specifying MAP LOCATIONS
     // in below useEffect, each entry is transformed via addGeoData funct,
     // then added to a new array 'mapLocations'.
     // (useEffect > supposed to fetch data again if the value of 'entries' changes
     // but not triggered again every time the DOM renders again, e. g. when a state gets updated)
-    
+  
     let mapLocations = [];
 
     useEffect(() => {
         //setCenterFunct();
+        if (entries != null) {
         entries.map(entry => (
             AddGeoData(entry)
             .then((response => mapLocations.push(response)))),
             //console.log('mapLocatoins:'),
             //console.log(mapLocations)
         );
+        return mapLocations}
         
     }, [entries]);
 
