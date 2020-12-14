@@ -23,10 +23,11 @@ Geocode.setApiKey(process.env.REACT_APP_API_KEY);
 
 function Body () {
 
+  //-----GETTING DATA FROM BACKEND TO DEFINE ENTRIES
+
   const [entries, setEntries] = useState(null);
   const [error, setError] = useState(null);
-  const [mapLocations, setMapLocations] = useState(null);
-
+  
   const getData = () =>
     fetch(`/all`)
       .then((res) => {
@@ -50,9 +51,12 @@ function Body () {
   }, [])
   
   // ------------ DEFINING MAP LOCATIONS
-  // in below useEffect, each entry is transformed via addGeoData funct, then added to a new array 'mapLocations'.
+
+  // each entry is transformed via addGeoData funct in order to get lat/lng for each location. Result: new array 'mapLocations'.
   // (useEffect > supposed to fetch data again if the value of 'entries' changes
   // but not triggered again every time the DOM renders again, e. g. when a state gets updated)
+  
+  const [mapLocations, setMapLocations] = useState(null);
 
   function defineMapLocations (entries) {
       let mapLocations = [];
@@ -77,7 +81,27 @@ function Body () {
       console.log(mapLocations);
   }, [entries]);
 
+  // ***** EXPERIMENT: ONLY ONE USEFFECT FOR DATA AND MARKERS
+
+  // Tried using just one useEffect that fetches entries and, after that, defines new markers
+  // could not make it work, 'mapLocations' was always passed as empty array. Here's my attempt:
+  
+  // useEffect(() => {
+
+  //   async function onLoad() {
+  //     await getData();
+  //     return defineMapLocations(entries);
+  //   }
+
+  //   onLoad();
+
+  //   //TIMER HERE
+  // }, [])
+
+  // ***** END EXPERIMENT USEEFFECT
+
   // ------RENDERED DATA
+
   // as long as there is no value for entries, the user will be shown a 'loading message'
   // if entries cannot be fetched, it will be an error message
 

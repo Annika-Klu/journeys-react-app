@@ -7,6 +7,8 @@ import './Marker.css';
 
 function GoogleMap ({ mapLocations }) {
 
+    console.log(mapLocations);
+
     const defaultZoom = 12;
 
     // ------------DEFAULT CENTER
@@ -62,6 +64,7 @@ function GoogleMap ({ mapLocations }) {
             />
         ))
         setMarkers(newMarkers);
+        console.log(`new Markers logged below:`);
         console.log(newMarkers);
         return markers;
     };
