@@ -29,6 +29,7 @@ function NewPost() {
             console.log(error);}
         );
         history.push('/');
+        //to do: cause entries data to reload on return to dashboard 
    }
 
     //if login functionality >> render 'user' conditionally based on whether someone is logged in:

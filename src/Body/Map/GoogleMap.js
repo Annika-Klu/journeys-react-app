@@ -5,45 +5,11 @@ import Theme from './Theme';
 import Marker from './Marker';
 import './Marker.css';
 
-function GoogleMap ({ mapLocations }) {
+function GoogleMap ({ mapLocations, center }) {
 
-    console.log(mapLocations);
+    //console.log(mapLocations);
 
     const defaultZoom = 12;
-
-    // ------------DEFAULT CENTER
-    // the map's defaultCenter value needs to be there from the start and can't be changed.
-    // Therefore I can't set the value via useState
-    // I tried to get default center data from Geocode API in the body component and pass it from there, 
-    // but still encountered the same problem as described below at --SETTING CENTER
-
-    let defaultCenter = {
-        lat: 30.4277547,
-        lng: -9.5981072
-    }
-
-    //-------------GETTING LNG/LAT DATA FOR EACH ENTRY
-
-    // as placing marker for each location requires latitude and longitude,
-    // the function AddGeoData (see imports) uses Geocode API to create new entry object that also includes lat/lng
-    // it is applied in the useEffect below.
-
-    //-------------SETTING CENTER TO LATEST ENTRY
-
-    // NOT IN USE. PROBLEM: map does center like it's supposed to,
-    // but seemingly interferance with onGoogleAPIloaded? > markers not rendered anymore
-    
-    // since entries are received sorted by date, the latest entry would be the one at index pos. 0
-    // I tried to grab this the data for the center from useEffect > mapLocations array but could not make it work.
-    // so below there is a function to define the center.
-
-    // const [center, setCenter] = useState(undefined);
-
-    // async function setCenterFunct () {
-    //     let centerEntry = await addGeoData(entries[0]);
-    //     console.log('centerentry ' + centerEntry);
-    //     setCenter({lat : centerEntry.lat, lng: centerEntry.lng});
-    // }
 
     //-------------SHOWING MARKERS
 
@@ -92,14 +58,16 @@ function GoogleMap ({ mapLocations }) {
         setActiveMarker(null);
     }
 
+    //--------ACTUAL MAP
+
     return (
         <div style={{height: "100%", width: "100%"}}>
 
             <GoogleMapReact
                 bootstrapURLKeys={{key: process.env.REACT_APP_API_KEY}}
-                defaultCenter={defaultCenter}
+                //defaultCenter={defaultCenter}
                 defaultZoom={defaultZoom}
-                //center={center}
+                center={center}
                 onChildClick={openInfoWindow}
                 options={{styles: Theme}}
                 onGoogleApiLoaded={renderMarkers}

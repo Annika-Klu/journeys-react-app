@@ -13,48 +13,45 @@ import AddGeoData from './Map/AddGeoData';
 import Geocode from 'react-geocode';
 Geocode.setApiKey(process.env.REACT_APP_API_KEY);
 
-//------BEFORE BACKEND WAS ADDED
-//import defaultEntries from '../test.json'
-//let entries = defaultEntries.sort((a, b) => b.visitDate.localeCompare(a.visitDate));
-//----is OUTDATED. The sorting now also happens in the backend
-
-//BACKEND REPO: PRIVATE /annika-klu/journeys-react-backend
-//there is also a version deployed to Heroku but I will stick with the local one so I can update entries
 
 function Body () {
 
   //-----GETTING DATA FROM BACKEND TO DEFINE ENTRIES
+  // Backend repo (private): /annika-klu/journeys-react-backend
+  // there is also a version deployed to Heroku but I will stick with the locally hosted one
 
   const [entries, setEntries] = useState(null);
   const [error, setError] = useState(null);
   
-  const getData = () =>
+  function getData () {
     fetch(`/all`)
       .then((res) => {
         if (!res.ok) {
-        setError(`a problem ocurred when loading the data: ${res.statusText}`);
+        setError(`a problem occurred when loading the data: ${res.statusText}`);
         }
         return res.json()})
       .then((data) => setEntries(data))
       .catch((err) => console.log(err))
+  }
 
   useEffect(() => {
 
     getData();
 
-    //timer. Every 5 minutes the data gets fetched > entries updated
-    // const interval=setInterval(()=>{
-    //   getData()
-    //  },300000)
-      
-    //  return()=>clearInterval(interval)
+    // timer. Every 5 minutes the data gets fetched > entries updated
+    // maybe introduce useState hook for newPost instead.
+    const interval = setInterval(()=>{
+      getData()
+     },300000)
+
+     return()=>clearInterval(interval)
+
   }, [])
   
   // ------------ DEFINING MAP LOCATIONS
 
-  // each entry is transformed via addGeoData funct in order to get lat/lng for each location. Result: new array 'mapLocations'.
-  // (useEffect > supposed to fetch data again if the value of 'entries' changes
-  // but not triggered again every time the DOM renders again, e. g. when a state gets updated)
+  // placing marker requires lat and lng, that's the job of AddGeoData funct. 
+  // Result: new array 'mapLocations'.
   
   const [mapLocations, setMapLocations] = useState(null);
 
@@ -75,16 +72,30 @@ function Body () {
       return mapLocations;
   }
 
+  //------------SETTING MAP CENTER
+
+  const [center, setCenter] = useState(undefined);
+
+  async function setCenterFunct () {
+      if (entries != null) {
+        let centerEntry = await AddGeoData(entries[0]);
+        setCenter({lat : centerEntry.lat, lng: centerEntry.lng});
+      }
+  }
+
+  //------------USE EFFECT > Map Locations & Map Center defined if value of 'entries' changes
+
   useEffect(() => {
-      //setCenterFunct();
+      setCenterFunct();
       defineMapLocations(entries);
-      console.log(mapLocations);
+      //console.log(mapLocations);
   }, [entries]);
 
   // ***** EXPERIMENT: ONLY ONE USEFFECT FOR DATA AND MARKERS
 
   // Tried using just one useEffect that fetches entries and, after that, defines new markers
-  // could not make it work, 'mapLocations' was always passed as empty array. Here's my attempt:
+  // It did not work, 'mapLocations' was always passed as empty array. I'm thinking it's because the 
+  // async funct waits for code of getData to execute but does not actually wait for 'entries' state update. Here's my attempt:
   
   // useEffect(() => {
 
@@ -100,7 +111,7 @@ function Body () {
 
   // ***** END EXPERIMENT USEEFFECT
 
-  // ------RENDERED DATA
+  // ----------RENDERING DATA
 
   // as long as there is no value for entries, the user will be shown a 'loading message'
   // if entries cannot be fetched, it will be an error message
@@ -123,7 +134,7 @@ function Body () {
                   <AllEntries entries={entries}/>
                 </div>
                 <div className='map-wrap'>
-                  {mapLocations && <GoogleMap mapLocations={mapLocations}/> }
+                  {mapLocations && <GoogleMap mapLocations={mapLocations} center={center}/> }
                 </div>
               </>
               )}
