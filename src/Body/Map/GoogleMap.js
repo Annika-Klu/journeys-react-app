@@ -33,10 +33,12 @@ function GoogleMap ({entries}) {
 
     //-------------SETTING CENTER TO LATEST ENTRY
 
-    // NOT IN USE. PROBLEM: map does center but interferance with onGoogleAPIloaded? > markers not rendered anymore
+    // NOT IN USE. PROBLEM: map does center like it's supposed to,
+    // but seemingly interferance with onGoogleAPIloaded? > markers not rendered anymore
     
     // since entries are received sorted by date, the latest entry would be the one at index pos. 1
     // I tried to grab this the data for the center from useEffect > mapLocations array but could not make it work.
+    // so below there is a function to define the center.
 
     // const [center, setCenter] = useState(undefined);
 
@@ -48,7 +50,7 @@ function GoogleMap ({entries}) {
     
     // in below useEffect, each entry is transformed via addGeoData funct,
     // then added to a new array 'mapLocations'.
-    // (useEffect > data fetch executed again if the entries array changes
+    // (useEffect > supposed to fetch data again if the value of 'entries' changes
     // but not triggered again every time the DOM renders again, e. g. when a state gets updated)
     
     let mapLocations = [];
@@ -58,8 +60,8 @@ function GoogleMap ({entries}) {
         entries.map(entry => (
             AddGeoData(entry)
             .then((response => mapLocations.push(response)))),
-            console.log('mapLocatoins:'),
-            console.log(mapLocations)
+            //console.log('mapLocatoins:'),
+            //console.log(mapLocations)
         );
         
     }, [entries]);
@@ -99,9 +101,9 @@ function GoogleMap ({entries}) {
     function openInfoWindow (key, childprops) {
         setActiveMarker(parseInt(key));
         // below console.log statements reveal that the marker is set correctly corresponding to the key value.
-        // (I noticed that every time you first click on a particular marker again, 
-        // the state value that gets logged still equals the the previous marker's key
-        // but I think that's related to the computing process in that script reading > logging is faster than state value change)
+        // (noticed: every time you first click on a particular marker again, the state value that gets logged 
+        // still equals the the previously selected marker's key, but I think that's related to the computing process: 
+        // script reading > logging is faster than state value change?)
         console.log(`activeMarker: ${activeMarker} ${typeof activeMarker}`);
         console.log(`key: ${key} ${typeof parseInt(key)} ${childprops.title}`);
     }

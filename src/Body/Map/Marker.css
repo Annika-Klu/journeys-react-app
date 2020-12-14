@@ -48,10 +48,10 @@
 /* Info window */
 
 .infoWindow {
-    width: 8em;
-    height: 10em;
+    width: 10em;
+    height: 12em;
     padding: 0.5em;
-    color: black;
+    color: rgba(31, 152, 192, 0.8);
     background-color: white;
     border-radius: 1em;
 }
@@ -59,7 +59,7 @@
 .closeWindow {
     position: absolute;
     font-size: 1.2em;
-    top: 5px; 
-    right: -100px;
+    top: 15px; 
+    right: -110px;
 }
     
