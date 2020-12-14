@@ -48,41 +48,34 @@ function Body () {
       
     //  return()=>clearInterval(interval)
   }, [])
-
-  // ------NOTE ON MAP LOCATIONS
-  // Using Geocode, I tried to create mapLocations array (containing lat/lng) here so that I could pass it directly
-  // to GoogleMap Component, rendering the GoogleMap conditionally only if "mapLocations" was not null
-  // but I could not resolve the synchronity issue and kept getting the message that "mapLocations is null"
   
-  //--- from GOOGLEMAP // specifying MAP LOCATIONS
-    // in below useEffect, each entry is transformed via addGeoData funct, then added to a new array 'mapLocations'.
-    // (useEffect > supposed to fetch data again if the value of 'entries' changes
-    // but not triggered again every time the DOM renders again, e. g. when a state gets updated)
-  
-    // let mapLocations = [];
+  // ------------ DEFINING MAP LOCATIONS
+  // in below useEffect, each entry is transformed via addGeoData funct, then added to a new array 'mapLocations'.
+  // (useEffect > supposed to fetch data again if the value of 'entries' changes
+  // but not triggered again every time the DOM renders again, e. g. when a state gets updated)
 
-    function defineMapLocations (entries) {
-        let mapLocations = [];
-        if (entries != null) {
-          entries.map(entry => (
-            AddGeoData(entry)
-            .then((response => mapLocations.push(response)))
-            // TRIED: updating state step by step with syntax (response => setMapLocations([...mapLocations, response]))) (setting mapLocations default to []), 
-            // PROBLEM: markers are not rendered anymore (Reason: GoogleMap Component rendered already while mapLocations is just empty array?)
-            // if I alter the conditional render, e. g. to say that mapLocations needs to have specific length, the map does not load at all.
-            // console.log('mapLocatoins:'),
-            // console.log(mapLocations)
-          ));
-        }
-        setMapLocations(mapLocations);
-        return mapLocations;
-    }
+  function defineMapLocations (entries) {
+      let mapLocations = [];
+      if (entries != null) {
+        entries.map((entry) => (
+          AddGeoData(entry)
+          .then((response => mapLocations.push(response)))
+          // TRIED: updating state step by step with syntax (response => setMapLocations([...mapLocations, response]))) (setting mapLocations default to []), 
+          // PROBLEM: markers are not rendered anymore (Reason: GoogleMap Component rendered already while mapLocations is just empty array?)
+          // if I alter the conditional render, e. g. to say that mapLocations needs to have specific length, the map does not load at all.
+          // console.log('mapLocatoins:'),
+          // console.log(mapLocations)
+        ));
+      }
+      setMapLocations(mapLocations);
+      return mapLocations;
+  }
 
-    useEffect(() => {
-        //setCenterFunct();
-        defineMapLocations(entries);
-        console.log(mapLocations);
-    }, [entries]);
+  useEffect(() => {
+      //setCenterFunct();
+      defineMapLocations(entries);
+      console.log(mapLocations);
+  }, [entries]);
 
   // ------RENDERED DATA
   // as long as there is no value for entries, the user will be shown a 'loading message'

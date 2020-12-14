@@ -38,7 +38,7 @@ function GoogleMap ({ mapLocations }) {
     // const [center, setCenter] = useState(undefined);
 
     // async function setCenterFunct () {
-    //     let centerEntry = await addGeoData(entries[1]);
+    //     let centerEntry = await addGeoData(entries[0]);
     //     console.log('centerentry ' + centerEntry);
     //     setCenter({lat : centerEntry.lat, lng: centerEntry.lng});
     // }
