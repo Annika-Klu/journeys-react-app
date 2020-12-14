@@ -10,7 +10,6 @@
 }
 
 .nav-left, .nav-right {
-  display: flex;
   align-items: center;
 }
   
@@ -42,7 +41,7 @@ I added them to show I knew how bc it was in the specs, but they do not match my
 Also, though it's a very common practice, combining them with the info in writing 
 actually corrupts the basic idea of using icons, namely to provide quick-to-grasp visual information instead of written one */
 
-nav div button {
+.nav-btn {
   background-color: white;
   /* width: 8em;
   text-align: left; */

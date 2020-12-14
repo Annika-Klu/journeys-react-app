@@ -145,7 +145,7 @@ function Body () {
               exact path={`/post/:id/:entryURL`}
               render={() => (
                 <>
-                  <div className='single-entry-wrap'>
+                  <div className='entry-detail-wrap'>
                     <EntryDetail entries={entries}/>
                   </div>
                 </>

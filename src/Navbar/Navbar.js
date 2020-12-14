@@ -5,7 +5,7 @@ function Navbar () {
     return (
         <header className='header'>
             <div className='header-wrapper'>
-                <nav className='nav-left'>
+                <nav className='nav-left flex-wrap'>
                     <div> 
                         <a href='/'>
                             <span id='logo'>JOURNEYS. </span>
@@ -13,18 +13,18 @@ function Navbar () {
                         <span id='slogan'>share your travel experiences</span>
                     </div>
                 </nav>
-                <nav className='nav-right'>
+                <nav className='nav-right flex-wrap'>
                     <div>
                         <a id='contact' href='/contact'>contact</a>
                     </div>
                     {/*I also added icons can be viewed, see note in CSS file*/}
                     <div>
-                        <button id='new-post-btn'>
+                        <button className='nav-btn'>
                             <a id='new' href='/new'>new post</a>
                         </button>
                     </div>
                     <div>
-                        <button id='login-btn'>login</button>
+                        <button className='nav-btn'>login</button>
                     </div>
                 </nav>
             </div>

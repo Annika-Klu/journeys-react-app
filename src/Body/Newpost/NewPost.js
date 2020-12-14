@@ -6,9 +6,6 @@ import Geocode from 'react-geocode';
 Geocode.setApiKey(process.env.REACT_APP_API_KEY);
 
 
-
-//'https://icon-library.com/images/default-user-icon/default-user-icon-4.jpg'
-
 function NewPost() {
 
    const [post, setPost] = useState({ });
@@ -17,6 +14,7 @@ function NewPost() {
    //in spite of return statement the function still adds the post even if there's an error
    async function submitPost (event) {
        event.preventDefault();
+       //to do: add default Img for author and location if respective fields are empty
        console.log(post);
        let response = await Geocode.fromAddress(post.location)
         .catch(err => {if (err.status === undefined) 
@@ -128,6 +126,7 @@ function NewPost() {
                             <br/>
                             <input
                                 name='description'
+                                id='description'
                                 type='text'
                                 value={post.description}
                                 onChange={event => setPost({...post, [event.currentTarget.name] : event.currentTarget.value})}

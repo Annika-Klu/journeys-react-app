@@ -7,7 +7,7 @@ function EntryDetail ({ entries }) {
     //in order to display correct entry array item
     let { id } = useParams();
     id--;
-    console.log(id);
+    //console.log(id);
 
     let entryImageSource = {
         backgroundImage: `url(${entries[id].locationImg})`,

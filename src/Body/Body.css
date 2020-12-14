@@ -110,14 +110,15 @@ technical issues when creating this page. */
   }
 }
 
-/*single entry page*/
+/*entry detail page*/
 
-.single-entry-wrap {
+.entry-detail-wrap {
   width: 70%;
-  margin: 5% 0 0 15%;
+  margin: 5% auto;
 }
 
 .entry-detail {
+  box-sizing: border-box;
   height: max-content;
   width: 100%;
   color: rgba(27, 134, 170, 0.5);
@@ -166,9 +167,8 @@ technical issues when creating this page. */
 /*responsiveness - single entry detail*/
 
 @media only screen and (max-width: 1050px) {
-  .single-entry-wrap {
+  .entry-detail-wrap {
     width: 80%;
-    margin: 5% 0 0 10%;
   }
   .detail-text {
     margin: 5% 0 0 10%;
@@ -188,9 +188,8 @@ technical issues when creating this page. */
 }
 
 @media only screen and (max-width: 750px) {
-  .single-entry-wrap {
+  .entry-detail-wrap {
     width: 100%;
-    margin: 5% 0 0 0;
   }
   .detail-text {
     margin: 5% 0 0 10%;
