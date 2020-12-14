@@ -55,8 +55,7 @@ function Body () {
   // but I could not resolve the synchronity issue and kept getting the message that "mapLocations is null"
   
   //--- from GOOGLEMAP // specifying MAP LOCATIONS
-    // in below useEffect, each entry is transformed via addGeoData funct,
-    // then added to a new array 'mapLocations'.
+    // in below useEffect, each entry is transformed via addGeoData funct, then added to a new array 'mapLocations'.
     // (useEffect > supposed to fetch data again if the value of 'entries' changes
     // but not triggered again every time the DOM renders again, e. g. when a state gets updated)
   

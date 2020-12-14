@@ -1,14 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Theme from './Theme';
 
 import Marker from './Marker';
 import './Marker.css';
-
-// ---moved to BODY //Elements for using Geocode API
-// import AddGeoData from './AddGeoData';
-// import Geocode from 'react-geocode';
-// Geocode.setApiKey(process.env.REACT_APP_API_KEY);
 
 function GoogleMap ({ mapLocations }) {
 
@@ -36,7 +31,7 @@ function GoogleMap ({ mapLocations }) {
     // NOT IN USE. PROBLEM: map does center like it's supposed to,
     // but seemingly interferance with onGoogleAPIloaded? > markers not rendered anymore
     
-    // since entries are received sorted by date, the latest entry would be the one at index pos. 1
+    // since entries are received sorted by date, the latest entry would be the one at index pos. 0
     // I tried to grab this the data for the center from useEffect > mapLocations array but could not make it work.
     // so below there is a function to define the center.
 
@@ -47,27 +42,6 @@ function GoogleMap ({ mapLocations }) {
     //     console.log('centerentry ' + centerEntry);
     //     setCenter({lat : centerEntry.lat, lng: centerEntry.lng});
     // }
-
-    // --- moved to BODY ---// specifying MAP LOCATIONS
-    // // in below useEffect, each entry is transformed via addGeoData funct,
-    // // then added to a new array 'mapLocations'.
-    // // (useEffect > supposed to fetch data again if the value of 'entries' changes
-    // // but not triggered again every time the DOM renders again, e. g. when a state gets updated)
-  
-    // let mapLocations = [];
-
-    // useEffect(() => {
-    //     //setCenterFunct();
-    //     if (entries != null) {
-    //     entries.map(entry => (
-    //         AddGeoData(entry)
-    //         .then((response => mapLocations.push(response)))),
-    //         //console.log('mapLocatoins:'),
-    //         //console.log(mapLocations)
-    //     );
-    //     return mapLocations}
-        
-    // }, [entries]);
 
     //-------------SHOWING MARKERS
 
