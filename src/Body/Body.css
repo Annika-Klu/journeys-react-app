@@ -249,11 +249,12 @@ form {
 }
 
 form input {
+  text-align: center;
   margin: 1em 0;
   padding: 1em;
   width: 80%;
   border-style: none;
-  color: lightgrey;
+  color: rgba(27, 134, 170, 0.6);
   background-color: rgba(27, 134, 170, 0.05);
   border-radius: 0.5em;
 }
