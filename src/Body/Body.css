@@ -236,6 +236,15 @@ technical issues when creating this page. */
   list-style-position: inside;
 }
 
+#yourMessage {
+  height: 8em;
+}
+
+#sendMessage {
+  margin-top: 0;
+  font-weight: bold;
+}
+
 /*NEW POST*/
 
 .new-post-header {

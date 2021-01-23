@@ -24,15 +24,24 @@ function Contact() {
                     <br/> ...I sure don't mind going "back to school" if it's with you!
                 </p>
                 <div>
-                    Wanna get in touch?
-                    <ul id='contact-details'>
-                        <li>Annika Kluepfel</li>
-                        <li>Troplowitzstr. 11, 22529 HH</li>
-                        <li>AnnikaKluepfel@web.de</li>
-                        <li>+49 151 51891818</li>
+                    <p class='title sub-title'>Wanna get in touch?</p>
+                    <p>github.com/annika-klu</p>
+                    <p class='red'>Note: at present, this contact form is 
+                        <span class='bold'> not </span>
+                    functional. The server will shortly be reprogrammed to enable sending a messsage through this contact form.</p>
+                    <form>
+                        <label for='yourEmail'>Your email 
+                            <br/>
+                            <input id='yourEmail' type='text'></input>
+                        </label>
                         <br/>
-                        <li>github.com/annika-klu</li>
-                    </ul>
+                        <label for='yourMessage'>Your message
+                            <br/>
+                            <input id='yourMessage' type='text'></input>
+                        </label>
+                        <br/>
+                        <button id='sendMessage'>Send</button>
+                    </form>
                 </div>
             </div>
         </div>

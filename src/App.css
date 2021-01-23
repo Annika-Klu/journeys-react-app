@@ -30,6 +30,10 @@ a:hover, button:hover {
   font-weight: bold;
 }
 
+.red {
+  color: darkred;
+}
+
 .flex-wrap {
   display: flex;
   justify-content: space-around;
