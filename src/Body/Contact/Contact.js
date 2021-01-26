@@ -47,9 +47,6 @@ function Contact() {
                     <p class='title sub-title'>Wanna see code? Visit me on github</p>
                     <p>github.com/annika-klu</p>
                     <p class='title sub-title'>Wanna get in touch?</p>
-                    <p class='red'>Note: at present, this contact form is 
-                        <span class='bold'> not </span>
-                    functional. The server will shortly be reprogrammed to enable sending a messsage through this contact form.</p>
                     <form onSubmit={submitMessage}>
                         <label htmlFor='yourName'>Your name 
                             <br/>
