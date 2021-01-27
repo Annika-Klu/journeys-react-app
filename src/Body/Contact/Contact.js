@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import  axios from 'axios';
 
 function Contact() {
 
     const [message, setMessage] = useState({});
-    const history = useHistory();
+    const [sent, setSent] = useState(false);
 
     async function submitMessage (event) {
         event.preventDefault();
@@ -16,7 +15,7 @@ function Contact() {
              .catch(function (error) {
              console.log(error);}
          );
-         history.push('/');
+        setSent(true);
     }
 
     return (
@@ -47,6 +46,10 @@ function Contact() {
                     <p class='title sub-title'>Wanna see code? Visit me on github</p>
                     <p>github.com/annika-klu</p>
                     <p class='title sub-title'>Wanna get in touch?</p>
+                     
+                    { sent ? 
+                    <p> Thanks for your message! I will get back to you as soon as possible.</p> : 
+                   
                     <form onSubmit={submitMessage}>
                         <label htmlFor='yourName'>Your name 
                             <br/>
@@ -83,7 +86,7 @@ function Contact() {
                         </label>
                         <br/>
                         <button id='sendMessage' type='submit'>Send</button>
-                    </form>
+                    </form> }
                 </div>
             </div>
         </div>
