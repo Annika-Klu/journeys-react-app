@@ -75,6 +75,11 @@ button {
   background-color: rgba(27, 134, 170, 0.05);
 }
 
+.bright-btn:hover {
+  background-color: rgba(27, 134, 170, 0.6);
+  color: white;
+}
+
 /* GENERAL SINGLE PAGE SETTINGS*/
 
 .single-page {

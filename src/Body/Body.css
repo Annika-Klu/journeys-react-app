@@ -274,8 +274,3 @@ form input {
 #description {
   height: 20vh;
 }
-
-#share-post-btn:hover {
-  background-color: rgba(27, 134, 170, 0.6);
-  color: white;
-}

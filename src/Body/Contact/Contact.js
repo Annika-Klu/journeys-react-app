@@ -92,7 +92,7 @@ function Contact() {
                             </input>
                         </label>
                         <br/>
-                        <button id='sendMessage' type='submit'>Send</button>
+                        <button id='sendMessage' class='bright-btn' type='submit'>Send</button>
                     </form> }
                 </div>
             </div>
