@@ -27,11 +27,16 @@ function Contact() {
                     <br/> <span className='title sub-title'>Annika Kluepfel</span>
                     <br/> graduating from Hamburg Coding School
                     <br/> Full-Stack Web Development program
+                    <br/> December 2020
                 </p>
                 <p>
                     JOURNEYS is a travel blog built using the frontend Javascript framework 'React'.
                     <br/> Fictional users share their travel experiences, whereas locations are displayed on a map by
-                    fetching their geographic data from a Google API to place corresponding markers.
+                    fetching their geographic data from a Google API to place corresponding markers. 
+                </p>
+                <p>
+                    Since graduating, I've continued to work on my blog project, adding first of all an email form to this contact page.
+                    Next, I will improve some of the features, as well as the website's responsiveness.
                 </p>
                 <p hidden={true}>
                     <span className='title'>Thank you</span>
@@ -43,8 +48,8 @@ function Contact() {
                     <br/> ...I sure don't mind going "back to school" if it's with you!
                 </p>
                 <div>
-                    <p class='title sub-title'>Wanna see code? Visit me on github</p>
-                    <p>github.com/annika-klu</p>
+                    <p class='title sub-title'>Wanna see code? View this project on github</p>
+                    <p><a href='https://github.com/Annika-Klu/journeys-react-app' target='blank'>github.com/annika-klu</a></p>
                     <p class='title sub-title'>Wanna get in touch?</p>
                      
                     { sent ? 
@@ -67,6 +72,7 @@ function Contact() {
                             <br/>
                             <input
                                 name='yourEmail'
+                                placeholder='example@email.com'
                                 type='email'
                                 value={message.yourEmail}
                                 onChange={event => setMessage({...message, [event.currentTarget.name] : event.currentTarget.value})}
@@ -77,7 +83,8 @@ function Contact() {
                         <label htmlFor='yourMessage'>Your message
                             <br/>
                             <input
-                                name='yourMessage' 
+                                name='yourMessage'
+                                id='yourMessage' 
                                 type='text'
                                 value={message.text}
                                 onChange={event => setMessage({...message, [event.currentTarget.name] : event.currentTarget.value})}

@@ -227,7 +227,7 @@ technical issues when creating this page. */
 /*CONTACT PAGE*/
 
 #contact-header {
-  margin: 5% 0 2% 0;
+  margin: 5% 0 5% 0;
 }
 
 #contact-details {
@@ -242,7 +242,6 @@ technical issues when creating this page. */
 
 #sendMessage {
   margin-top: 0;
-  font-weight: bold;
 }
 
 /*NEW POST*/
