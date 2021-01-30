@@ -48,8 +48,8 @@ function Contact() {
                     <br/> ...I sure don't mind going "back to school" if it's with you!
                 </p>
                 <div>
-                    <p class='title sub-title'>Wanna see code? View this project on github</p>
-                    <p><a href='https://github.com/Annika-Klu/journeys-react-app' target='blank'>github.com/annika-klu</a></p>
+                    <p class='title sub-title'>Wanna see code?</p>
+                    <p><a href='https://github.com/Annika-Klu/journeys-react-app' target='blank'>View this project on github</a></p>
                     <p class='title sub-title'>Wanna get in touch?</p>
                      
                     { sent ? 
