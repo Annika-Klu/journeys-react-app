@@ -5,7 +5,7 @@ This project was created with React.js and connects to a Node server. The data -
 ## Features
 
 Displays blog entries with author name and image. On clicking on an entry, you can view its details.
-All entries (more precisely, their locations) are marked on the map integrated with Google's Javascript map API and Geocode API. It is also possible to add a new entry, however at this point, it is only temporarily available
+All entries (more precisely, their locations) are marked on the map integrated with Google's Javascript map API and Geocode API. It is also possible to add a new entry, however at this point, it is only temporarily available and not stored in a database.
 
 ### Improvements and to do
 - improve responsiveness (esp. nav bar, esp. on mobile)
