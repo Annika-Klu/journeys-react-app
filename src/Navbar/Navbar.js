@@ -25,8 +25,8 @@ function Navbar () {
                     <div>
                         <button className='nav-btn'>login</button>
                     </div>
-                    <div>
-                        <icon src='../../public/favicon.ico'></icon>
+                    <div id='mobile-menu'>
+                        <img src='../../public/favicon.ico'></img>
                     </div>
                 </nav>
         </header>

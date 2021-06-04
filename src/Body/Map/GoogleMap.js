@@ -75,7 +75,7 @@ function GoogleMap ({ mapLocations, center }) {
 
                 {markers}
 
-          </GoogleMapReact>
+            </GoogleMapReact>
         </div>
     )
 }

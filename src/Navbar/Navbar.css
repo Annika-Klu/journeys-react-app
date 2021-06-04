@@ -3,10 +3,16 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   height: 10%;
   padding: 1em;
   background-color: rgba(27, 134, 170, 0.6);
   font-size: 1.2em;
+  border-bottom: 3px solid rgba(27, 134, 170, 0.2);
+}
+
+#mobile-menu {
+  display: none;
 }
 
 .nav-left, .nav-right {
@@ -73,20 +79,28 @@ actually corrupts the basic idea of using icons, namely to provide quick-to-gras
 
 /* to do: toggle menu for < 600px screen sizes. Place on bottom? */
 
-@media (max-width:600px) {
+@media (max-width:620px) {
+
   .header {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgb(255, 255, 255);
     height: 5em;
   }
+
   #logo {
     color: rgba(27, 134, 170, 0.6);
     margin: 0;
     font-size: 2.5em;
   }
+
   .nav-left {
     justify-content: start;
   }
+
   .header nav:not(:first-child) {
     display: none;
+  }
+
+  #mobile-menu {
+    /* add */
   }
 }
