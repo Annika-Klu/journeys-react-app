@@ -35,8 +35,8 @@ function Contact() {
                     fetching their geographic data from a Google API to place corresponding markers. 
                 </p>
                 <p>
-                    Since graduating, I've continued to work on my blog project, adding first of all an email form to this contact page.
-                    Next, I will improve some of the features, as well as the website's responsiveness.
+                    Over time, I will implement more features in this blog project, and improve its responsiveness.
+                    One change was adding an email form to this contact page.
                 </p>
                 <p hidden={true}>
                     <span className='title'>Thank you</span>
