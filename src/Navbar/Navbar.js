@@ -4,7 +4,6 @@ import React from 'react';
 function Navbar () {
     return (
         <header className='header'>
-            <div className='header-wrapper'>
                 <nav className='nav-left flex-wrap'>
                     <div> 
                         <a href='/'>
@@ -26,8 +25,10 @@ function Navbar () {
                     <div>
                         <button className='nav-btn'>login</button>
                     </div>
+                    <div>
+                        <icon src='../../public/favicon.ico'></icon>
+                    </div>
                 </nav>
-            </div>
         </header>
     )
 }

@@ -1,6 +1,6 @@
 /*NAVIGATION*/
 
-.header-wrapper {
+.header {
   display: flex;
   justify-content: space-between;
   height: 10%;
@@ -74,17 +74,19 @@ actually corrupts the basic idea of using icons, namely to provide quick-to-gras
 /* to do: toggle menu for < 600px screen sizes. Place on bottom? */
 
 @media (max-width:600px) {
-  .header-wrapper {
+  .header {
     background-color: rgba(255, 255, 255, 0.9);
     height: 5em;
-    justify-content: center;
   }
   #logo {
     color: rgba(27, 134, 170, 0.6);
     margin: 0;
-    font-size: 3.5em;
+    font-size: 2.5em;
   }
-  .nav-right {
+  .nav-left {
+    justify-content: start;
+  }
+  .header nav:not(:first-child) {
     display: none;
   }
 }
