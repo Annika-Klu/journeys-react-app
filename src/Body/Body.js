@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import axios from 'axios';
 
 //components
 import AllEntries from './Entries/AllEntries';
@@ -13,7 +14,6 @@ import AddGeoData from './Map/AddGeoData';
 import Geocode from 'react-geocode';
 Geocode.setApiKey(process.env.REACT_APP_API_KEY);
 
-
 function Body () {
 
   //-----GETTING DATA FROM BACKEND TO DEFINE ENTRIES
@@ -23,16 +23,18 @@ function Body () {
   const [entries, setEntries] = useState(null);
   const [error, setError] = useState(null);
   
-  function getData () {
-    fetch(`/all`)
-      .then((res) => {
-        if (!res.ok) {
-        setError(`a problem occurred when loading the data: ${res.statusText}`);
-        }
-        return res.json()})
-      .then((data) => setEntries(data))
-      .catch((err) => console.log(err))
+  async function getData () {
+    try {
+      const res = await axios.get(`${process.env.REACT_APP_BE_URL}/all`)
+    if (res.status === 200) {
+      setEntries(res.data)
+    }
+    } catch (error) {
+      setError(`a problem occurred when loading the data: ${error}`)
+      console.error(error.message)
+    }
   }
+
 
   useEffect(() => {
 
@@ -61,11 +63,6 @@ function Body () {
         entries.map((entry) => (
           AddGeoData(entry)
           .then((response => mapLocations.push(response)))
-          // TRIED: updating state step by step with syntax (response => setMapLocations([...mapLocations, response]))) (setting mapLocations default to []), 
-          // PROBLEM: markers are not rendered anymore (Reason: GoogleMap Component rendered already while mapLocations is just empty array?)
-          // if I alter the conditional render, e. g. to say that mapLocations needs to have specific length, the map does not load at all.
-          // console.log('mapLocatoins:'),
-          // console.log(mapLocations)
         ));
       }
       setMapLocations(mapLocations);
@@ -77,7 +74,7 @@ function Body () {
   const [center, setCenter] = useState(undefined);
 
   async function setCenterFunct () {
-      if (entries != null) {
+      if (entries !== null) {
         let centerEntry = await AddGeoData(entries[0]);
         setCenter({lat : centerEntry.lat, lng: centerEntry.lng});
       }

@@ -8,14 +8,14 @@ function Contact() {
 
     async function submitMessage (event) {
         event.preventDefault();
-        console.log(message);
-        axios.post('/contact', message)
-             .then(function (response) {
-             console.log(response); })
-             .catch(function (error) {
-             console.log(error);}
-         );
-        setSent(true);
+        try {
+            const res = await axios.post(`${process.env.REACT_APP_BE_URL}/contact`, message)
+            if (res.data === "Email successfully sent to recipient!") {
+                setSent(true);
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     return (
