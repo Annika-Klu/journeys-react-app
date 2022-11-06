@@ -5,17 +5,10 @@ This project was created with React.js and connects to a Node server. The data -
 ## Features
 
 Displays blog entries with author name and image. On clicking on an entry, you can view its details.
-All entries (more precisely, their locations) are marked on the map integrated with Google's Javascript map API and Geocode API. It is also possible to add a new entry, however at this point, the entry is only temporarily available because it is not stored in a database.
+All entries (more precisely, their locations) are marked on the map integrated with Google's Javascript map API and Geocode API. It is also possible to add a new entry, however the entry is only temporarily available because it is not stored in a database.
 
-## Improvements and to do
-- improve responsiveness (esp. nav bar, esp. on mobile)
-- better entry  validation for new posts
-- delete entry functionality
-- email validation on contact form
-- connect entries to database
-- provide login feature
+## This project is discontinued
 
-## Questions or feedback? Let me know!
+This blog was a graduation project when I had just learned how to code. I've now discarded plans to add new fatures as I would first need to refactor the entire application code. Therefore, I'll focus on newer projects I have since created, and will leave this one as is. In fact I think that's even nicer, as this project represents the beginning of my own journey: the journey to becoming a developer.
 
-Feel free to provide feedback through the contact form on the page:
-https://journeys-frontend.herokuapp.com/contact
+As for that: The live version linked to in the repo might also be paused/inactive inbetween.

@@ -11,23 +11,35 @@ function NewPost() {
    const [post, setPost] = useState({ });
    const history = useHistory();
 
+   async function checkLocation() {
+        try {
+            let response = await Geocode.fromAddress(post.location)
+            console.log(response)
+            return true
+        } catch (error) {
+            return false
+        }
+   }
+
    //in spite of return statement the function still adds the post even if there's an error
    async function submitPost (event) {
        event.preventDefault();
        //to do: add default Img for author and location if respective fields are empty
-       console.log(post);
-       let response = await Geocode.fromAddress(post.location)
-        .catch(err => {if (err.status === undefined) 
-            {return alert('Sorry, we cannot find this place on the map. Please check your location entry for typos and look up alternative English spellings')}});
-            console.log(response);
-        axios.post('/new', post)
-            .then(function (response) {
-            console.log(response); })
-            .catch(function (error) {
-            console.log(error);}
-        );
-        history.push('/');
-        //to do: cause entries data to reload on return to dashboard 
+       try {
+            const placeFound = await checkLocation()
+            if (!placeFound) {
+                alert('Sorry, we cannot find this place on the map. Please check your location entry for typos and look up alternative English spellings')
+                return
+            }    
+            const res = await axios.post(`${process.env.REACT_APP_BE_URL}/new`, post)
+            console.log(res)
+            if (res.status === 200) {
+                history.push('/');
+                //to do: cause entries data to reload on return to dashboard
+            }
+       } catch (error) {
+        console.error(error)
+       }      
    }
 
     //if login functionality >> render 'user' conditionally based on whether someone is logged in:

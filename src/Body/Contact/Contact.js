@@ -8,14 +8,14 @@ function Contact() {
 
     async function submitMessage (event) {
         event.preventDefault();
-        console.log(message);
-        axios.post('/contact', message)
-             .then(function (response) {
-             console.log(response); })
-             .catch(function (error) {
-             console.log(error);}
-         );
-        setSent(true);
+        try {
+            const res = await axios.post(`${process.env.REACT_APP_BE_URL}/contact`, message)
+            if (res.data === "Email successfully sent to recipient!") {
+                setSent(true);
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     return (
@@ -34,9 +34,10 @@ function Contact() {
                     <br/> Fictional users share their travel experiences, whereas locations are displayed on a map by
                     fetching their geographic data from a Google API to place corresponding markers. 
                 </p>
+                <p class='title sub-title'>This project is discontinued</p>
                 <p>
-                    Over time, I will implement more features in this blog project, and improve its responsiveness.
-                    One change was adding an email form to this contact page.
+                   I have decided to focus on newer projects and leave this one as is. 
+                   <br />Ultimately, it represents the beginning of my own journey: The journey to becoming a developer.
                 </p>
                 <p hidden={true}>
                     <span className='title'>Thank you</span>
